@@ -1,0 +1,27 @@
+{
+  "name": "reactwebportfolio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "portfolio.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/will-mp3/ReactWebPortfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/will-mp3/ReactWebPortfolio/issues"
+  },
+  "homepage": "https://github.com/will-mp3/ReactWebPortfolio#readme",
+  "dependencies": {
+    "lucide-react": "^0.525.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-scripts": "^5.0.1"
+  }
+}
