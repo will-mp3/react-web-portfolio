@@ -167,11 +167,11 @@ const HomePage = ({ onProjectClick }) => {
             <div className="bg-black text-white p-4 font-mono text-sm mb-6">
               <div className="text-green-400">$ whoami</div>
               <div>Building modern web applications with clean code...</div>
-              <div className="text-blue-400 mt-2">$ ls skills/</div>
-              <div className="text-yellow-300">react.js node.js python.sql mongodb.git</div>
+              <div className="text-green-400 mt-2">$ ls skills/</div>
+              <div>react.js node.js python.sql mongodb.git</div>
             </div>
             <div className="flex justify-center space-x-4">
-              <a href="#projects" className="bg-blue-500 text-white px-6 py-3 font-mono text-sm border-2 border-black hover:bg-blue-600 transition shadow-lg" style={{boxShadow: '4px 4px 0px #000'}}>
+              <a href="#projects" className="bg-red-500 text-white px-6 py-3 font-mono text-sm border-2 border-black hover:bg-blue-600 transition shadow-lg" style={{boxShadow: '4px 4px 0px #000'}}>
                 VIEW.PROJECTS
               </a>
               <a href="#contact" className="bg-green-500 text-white px-6 py-3 font-mono text-sm border-2 border-black hover:bg-green-600 transition shadow-lg" style={{boxShadow: '4px 4px 0px #000'}}>
@@ -312,8 +312,8 @@ const HomePage = ({ onProjectClick }) => {
             </div>
             <div className="p-8">
               <div className="font-mono text-sm text-black mb-4">
-                <span className="text-green-500">&gt; ESTABLISHING CONNECTION...</span><br/>
-                <span className="text-blue-500">&gt; CONTACT PROTOCOLS READY</span>
+                <span className="text-yellow-500">&gt; ESTABLISHING CONNECTION...</span><br/>
+                <span className="text-green-500">&gt; CONTACT PROTOCOLS READY</span>
               </div>
               <p className="text-black mb-6 max-w-md">
                 I'm always open to discussing new opportunities and interesting projects.
