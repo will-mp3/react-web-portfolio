@@ -136,123 +136,208 @@ const fetchWeatherData = async (city) => {
 // Home Page Component
 const HomePage = ({ onProjectClick }) => {
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="bg-white shadow-sm">
-        <div className="max-w-6xl mx-auto px-4 py-6">
+    <div className="min-h-screen bg-gray-300" style={{
+      backgroundImage: `repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(0,0,0,.05) 2px, rgba(0,0,0,.05) 4px)`
+    }}>
+      {/* Header - Classic Mac Menu Bar */}
+      <header className="bg-gray-200 border-b-2 border-black">
+        <div className="max-w-6xl mx-auto px-4 py-2">
           <div className="flex justify-between items-center">
-            <h1 className="text-2xl font-bold text-gray-900">Your Name</h1>
-            <nav className="flex space-x-6">
-              <a href="#about" className="text-gray-600 hover:text-gray-900">About</a>
-              <a href="#projects" className="text-gray-600 hover:text-gray-900">Projects</a>
-              <a href="#contact" className="text-gray-600 hover:text-gray-900">Contact</a>
+            <div className="flex items-center space-x-4">
+              <div className="w-6 h-6 bg-black flex items-center justify-center">
+                <div className="w-4 h-4 bg-red-500 rounded-full flex items-center justify-center">
+                  <div className="w-2 h-2 bg-black rounded-full"></div>
+                </div>
+              </div>
+              <h1 className="text-xl font-mono font-bold text-black">YOUR.NAME</h1>
+            </div>
+            <nav className="flex space-x-1">
+              <a href="#about" className="px-3 py-1 text-black hover:bg-blue-500 hover:text-white font-mono text-sm border border-black transition">About</a>
+              <a href="#projects" className="px-3 py-1 text-black hover:bg-green-500 hover:text-white font-mono text-sm border border-black transition">Projects</a>
+              <a href="#contact" className="px-3 py-1 text-black hover:bg-yellow-500 hover:text-black font-mono text-sm border border-black transition">Contact</a>
             </nav>
           </div>
         </div>
       </header>
 
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-600 to-purple-700 text-white py-20">
+      {/* Hero Section - Classic Mac Desktop */}
+      <section className="bg-gray-300 text-black py-20 border-b-4 border-black" style={{
+        backgroundImage: `repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(0,0,0,.1) 2px, rgba(0,0,0,.1) 4px)`
+      }}>
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-5xl font-bold mb-6">Full-Stack Developer</h2>
-          <p className="text-xl mb-8 opacity-90">
-            Building modern web applications with clean code and exceptional user experiences
-          </p>
-          <div className="flex justify-center space-x-4">
-            <a href="#projects" className="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
-              View Projects
-            </a>
-            <a href="#contact" className="border-2 border-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition">
-              Get in Touch
-            </a>
+          <div className="bg-white border-4 border-black p-8 shadow-lg" style={{
+            boxShadow: '8px 8px 0px #000'
+          }}>
+            <h2 className="text-4xl font-mono font-bold mb-6 text-black">FULL-STACK.DEVELOPER</h2>
+            <div className="bg-black text-white p-4 font-mono text-sm mb-6">
+              <div className="text-green-400">$ whoami</div>
+              <div>Building modern web applications with clean code...</div>
+              <div className="text-blue-400 mt-2">$ ls skills/</div>
+              <div className="text-yellow-300">react.js node.js python.sql mongodb.git</div>
+            </div>
+            <div className="flex justify-center space-x-4">
+              <a href="#projects" className="bg-blue-500 text-white px-6 py-3 font-mono text-sm border-2 border-black hover:bg-blue-600 transition shadow-lg" style={{boxShadow: '4px 4px 0px #000'}}>
+                VIEW.PROJECTS
+              </a>
+              <a href="#contact" className="bg-green-500 text-white px-6 py-3 font-mono text-sm border-2 border-black hover:bg-green-600 transition shadow-lg" style={{boxShadow: '4px 4px 0px #000'}}>
+                CONTACT.ME
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* About Section */}
+      {/* About Section - Mac Window Style */}
       <section id="about" className="py-20">
         <div className="max-w-4xl mx-auto px-4">
-          <h3 className="text-3xl font-bold text-center mb-12">About Me</h3>
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <p className="text-lg text-gray-600 mb-6">
-                [Replace with your bio - talk about your background, passion for coding, and what drives you as a developer]
-              </p>
-              <p className="text-lg text-gray-600 mb-6">
-                [Add more about your experience, learning journey, and what you enjoy building]
-              </p>
-              <div className="flex space-x-4">
-                <a href="[Your Resume URL]" className="flex items-center space-x-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">
-                  <span>Resume</span>
-                  <ExternalLink size={16} />
-                </a>
-                <a href="[Your GitHub URL]" className="flex items-center space-x-2 bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-900 transition">
-                  <Github size={16} />
-                  <span>GitHub</span>
-                </a>
+          <div className="bg-white border-4 border-black mb-8" style={{
+            boxShadow: '8px 8px 0px #000'
+          }}>
+            <div className="bg-gray-200 border-b-2 border-black p-2 flex items-center">
+              <div className="flex space-x-2">
+                <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+              </div>
+              <div className="flex-1 text-center">
+                <span className="font-mono text-sm font-bold">ABOUT.ME</span>
               </div>
             </div>
-            <div className="bg-gray-200 rounded-lg h-80 flex items-center justify-center">
-              <span className="text-gray-500">[Your Photo Here]</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Projects Section */}
-      <section id="projects" className="py-20 bg-gray-100">
-        <div className="max-w-6xl mx-auto px-4">
-          <h3 className="text-3xl font-bold text-center mb-12">Featured Projects</h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map(project => (
-              <div key={project.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
-                <div className="h-48 bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
-                  <span className="text-white font-semibold">[Project Screenshot]</span>
-                </div>
-                <div className="p-6">
-                  <h4 className="text-xl font-semibold mb-2">{project.title}</h4>
-                  <p className="text-gray-600 mb-4">{project.description}</p>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.technologies.map(tech => (
-                      <span key={tech} className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">
-                        {tech}
-                      </span>
-                    ))}
+            <div className="p-8">
+              <div className="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                  <p className="font-mono text-sm text-black mb-4">
+                    &gt; INITIALIZING DEVELOPER PROFILE...<br/>
+                    &gt; LOADING BACKGROUND DATA...
+                  </p>
+                  <p className="text-black mb-6">
+                    [Replace with your bio - talk about your background, passion for coding, and what drives you as a developer]
+                  </p>
+                  <p className="text-black mb-6">
+                    [Add more about your experience, learning journey, and what you enjoy building]
+                  </p>
+                  <div className="flex space-x-4">
+                    <a href="[Your Resume URL]" className="flex items-center space-x-2 bg-blue-500 text-white px-4 py-2 font-mono text-sm border-2 border-black hover:bg-blue-600 transition" style={{boxShadow: '3px 3px 0px #000'}}>
+                      <span>RESUME.PDF</span>
+                      <ExternalLink size={16} />
+                    </a>
+                    <a href="[Your GitHub URL]" className="flex items-center space-x-2 bg-yellow-500 text-black px-4 py-2 font-mono text-sm border-2 border-black hover:bg-yellow-600 transition" style={{boxShadow: '3px 3px 0px #000'}}>
+                      <Github size={16} />
+                      <span>GITHUB</span>
+                    </a>
                   </div>
-                  <button 
-                    onClick={() => onProjectClick(project.id)}
-                    className="inline-flex items-center space-x-2 text-blue-600 hover:text-blue-800 font-semibold"
-                  >
-                    <span>View Details</span>
-                    <ExternalLink size={16} />
-                  </button>
+                </div>
+                <div className="bg-black border-2 border-black h-80 flex flex-col">
+                  <div className="bg-gray-200 p-2 border-b-2 border-black">
+                    <span className="font-mono text-xs">PROFILE.PIC</span>
+                  </div>
+                  <div className="flex-1 flex items-center justify-center text-white font-mono">
+                    [PHOTO_HERE.JPG]
+                  </div>
                 </div>
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Contact Section */}
+      {/* Projects Section - Mac Folder Style */}
+      <section id="projects" className="py-20">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="bg-white border-4 border-black mb-8" style={{
+            boxShadow: '8px 8px 0px #000'
+          }}>
+            <div className="bg-gray-200 border-b-2 border-black p-2 flex items-center">
+              <div className="flex space-x-2">
+                <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+              </div>
+              <div className="flex-1 text-center">
+                <span className="font-mono text-sm font-bold">PROJECTS.FOLDER</span>
+              </div>
+            </div>
+            <div className="p-8">
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {projects.map((project, index) => {
+                  const colors = ['bg-blue-500', 'bg-red-500', 'bg-green-500', 'bg-yellow-500', 'bg-purple-500', 'bg-pink-500'];
+                  const bgColor = colors[index % colors.length];
+                  return (
+                    <div key={project.id} className="bg-gray-100 border-2 border-black hover:bg-white transition cursor-pointer" style={{
+                      boxShadow: '4px 4px 0px #000'
+                    }}>
+                      <div className={`h-32 ${bgColor} flex items-center justify-center border-b-2 border-black`}>
+                        <div className="text-white font-mono text-xs text-center">
+                          <div className="w-8 h-8 bg-white mx-auto mb-2 border border-black"></div>
+                          PROJECT.APP
+                        </div>
+                      </div>
+                      <div className="p-4">
+                        <h4 className="font-mono font-bold text-sm mb-2 text-black">{project.title.toUpperCase().replace(/\s+/g, '.')}</h4>
+                        <p className="text-xs text-black mb-3">{project.description}</p>
+                        <div className="flex flex-wrap gap-1 mb-3">
+                          {project.technologies.map(tech => (
+                            <span key={tech} className="bg-black text-white px-2 py-1 text-xs font-mono">
+                              {tech.toUpperCase()}
+                            </span>
+                          ))}
+                        </div>
+                        <button 
+                          onClick={() => onProjectClick(project.id)}
+                          className={`font-mono text-xs text-white ${bgColor} hover:opacity-80 border border-black px-2 py-1 transition`}
+                          style={{boxShadow: '2px 2px 0px #000'}}
+                        >
+                          OPEN.FILE
+                        </button>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section - Classic Mac Dialog */}
       <section id="contact" className="py-20">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h3 className="text-3xl font-bold mb-8">Get In Touch</h3>
-          <p className="text-lg text-gray-600 mb-8">
-            I'm always open to discussing new opportunities and interesting projects.
-          </p>
-          <div className="flex justify-center space-x-6">
-            <a href="mailto:your.email@example.com" className="flex items-center space-x-2 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition">
-              <Mail size={20} />
-              <span>Email</span>
-            </a>
-            <a href="[Your LinkedIn URL]" className="flex items-center space-x-2 bg-blue-800 text-white px-6 py-3 rounded-lg hover:bg-blue-900 transition">
-              <Linkedin size={20} />
-              <span>LinkedIn</span>
-            </a>
-            <a href="[Your GitHub URL]" className="flex items-center space-x-2 bg-gray-800 text-white px-6 py-3 rounded-lg hover:bg-gray-900 transition">
-              <Github size={20} />
-              <span>GitHub</span>
-            </a>
+          <div className="bg-white border-4 border-black inline-block" style={{
+            boxShadow: '8px 8px 0px #000'
+          }}>
+            <div className="bg-gray-200 border-b-2 border-black p-2 flex items-center">
+              <div className="flex space-x-2">
+                <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+              </div>
+              <div className="flex-1 text-center">
+                <span className="font-mono text-sm font-bold">CONTACT.DIALOG</span>
+              </div>
+            </div>
+            <div className="p-8">
+              <div className="font-mono text-sm text-black mb-4">
+                <span className="text-green-500">&gt; ESTABLISHING CONNECTION...</span><br/>
+                <span className="text-blue-500">&gt; CONTACT PROTOCOLS READY</span>
+              </div>
+              <p className="text-black mb-6 max-w-md">
+                I'm always open to discussing new opportunities and interesting projects.
+              </p>
+              <div className="flex flex-col space-y-3">
+                <a href="mailto:your.email@example.com" className="flex items-center justify-center space-x-2 bg-red-500 text-white px-6 py-3 font-mono text-sm border-2 border-black hover:bg-red-600 transition" style={{boxShadow: '4px 4px 0px #000'}}>
+                  <Mail size={16} />
+                  <span>SEND.EMAIL</span>
+                </a>
+                <a href="[Your LinkedIn URL]" className="flex items-center justify-center space-x-2 bg-blue-500 text-white px-6 py-3 font-mono text-sm border-2 border-black hover:bg-blue-600 transition" style={{boxShadow: '4px 4px 0px #000'}}>
+                  <Linkedin size={16} />
+                  <span>LINKEDIN.CONNECT</span>
+                </a>
+                <a href="[Your GitHub URL]" className="flex items-center justify-center space-x-2 bg-green-500 text-white px-6 py-3 font-mono text-sm border-2 border-black hover:bg-green-600 transition" style={{boxShadow: '4px 4px 0px #000'}}>
+                  <Github size={16} />
+                  <span>GITHUB.REPOS</span>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -264,14 +349,16 @@ const HomePage = ({ onProjectClick }) => {
 const ProjectPage = ({ project, onBackClick }) => {
   if (!project) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="min-h-screen bg-gray-300 flex items-center justify-center" style={{
+        backgroundImage: `repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(0,0,0,.05) 2px, rgba(0,0,0,.05) 4px)`
+      }}>
         <div className="text-center">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Project Not Found</h2>
+          <h2 className="text-2xl font-mono font-bold text-black mb-4">PROJECT.NOT.FOUND</h2>
           <button 
             onClick={onBackClick}
-            className="text-blue-600 hover:text-blue-800"
+            className="text-black hover:bg-black hover:text-white font-mono border border-black px-4 py-2"
           >
-            Back to Home
+            BACK.TO.HOME
           </button>
         </div>
       </div>
@@ -279,97 +366,131 @@ const ProjectPage = ({ project, onBackClick }) => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="bg-white shadow-sm">
-        <div className="max-w-6xl mx-auto px-4 py-6">
+    <div className="min-h-screen bg-gray-300" style={{
+      backgroundImage: `repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(0,0,0,.05) 2px, rgba(0,0,0,.05) 4px)`
+    }}>
+      {/* Header - Classic Mac Menu Bar */}
+      <header className="bg-gray-200 border-b-2 border-black">
+        <div className="max-w-6xl mx-auto px-4 py-2">
           <div className="flex items-center justify-between">
             <button 
               onClick={onBackClick}
-              className="flex items-center space-x-2 text-gray-600 hover:text-gray-900"
+              className="flex items-center space-x-2 text-black hover:bg-red-500 hover:text-white px-2 py-1 font-mono text-sm border border-black transition"
             >
-              <ArrowLeft size={20} />
-              <span>Back to Portfolio</span>
+              <ArrowLeft size={16} />
+              <span>BACK.TO.PORTFOLIO</span>
             </button>
-            <h1 className="text-2xl font-bold text-gray-900">Your Name</h1>
+            <h1 className="text-xl font-mono font-bold text-black">YOUR.NAME</h1>
           </div>
         </div>
       </header>
 
-      {/* Project Content */}
+      {/* Project Content - Mac Application Window */}
       <div className="max-w-6xl mx-auto px-4 py-12">
-        <div className="mb-8">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">{project.title}</h2>
-          <p className="text-xl text-gray-600 mb-6">{project.description}</p>
+        <div className="bg-white border-4 border-black" style={{
+          boxShadow: '8px 8px 0px #000'
+        }}>
+          <div className="bg-gray-200 border-b-2 border-black p-2 flex items-center">
+            <div className="flex space-x-2">
+              <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+              <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+              <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+            </div>
+            <div className="flex-1 text-center">
+              <span className="font-mono text-sm font-bold">{project.title.toUpperCase().replace(/\s+/g, '.')}</span>
+            </div>
+          </div>
           
-          <div className="flex flex-wrap gap-2 mb-6">
-            {project.technologies.map(tech => (
-              <span key={tech} className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
-                {tech}
-              </span>
-            ))}
-          </div>
-
-          <div className="flex space-x-4">
-            <a href={project.githubUrl} className="flex items-center space-x-2 bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-900 transition">
-              <Code size={16} />
-              <span>View Code</span>
-            </a>
-            <a href={project.liveUrl} className="flex items-center space-x-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">
-              <ExternalLink size={16} />
-              <span>Live Demo</span>
-            </a>
-          </div>
-        </div>
-
-        {/* Demo Video Section */}
-        <div className="mb-12">
-          <h3 className="text-2xl font-bold text-gray-900 mb-6">Demo Video</h3>
-          <div className="bg-gray-800 rounded-lg p-8 text-center">
-            <Play size={48} className="mx-auto text-white mb-4" />
-            <p className="text-white mb-4">Demo video placeholder</p>
-            <p className="text-gray-400 text-sm">Replace with actual video embed: {project.demoVideo}</p>
-          </div>
-        </div>
-
-        {/* Screenshots Section */}
-        <div className="mb-12">
-          <h3 className="text-2xl font-bold text-gray-900 mb-6">Screenshots</h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {project.screenshots.map((screenshot, index) => (
-              <div key={index} className="bg-gray-200 rounded-lg overflow-hidden">
-                <img 
-                  src={screenshot} 
-                  alt={`Screenshot ${index + 1}`}
-                  className="w-full h-48 object-cover"
-                />
+          <div className="p-8">
+            <div className="mb-8">
+              <h2 className="text-3xl font-mono font-bold text-black mb-4">{project.title.toUpperCase()}</h2>
+              <div className="bg-black text-green-400 p-4 font-mono text-sm mb-6">
+                <div>$ cat project_description.txt</div>
+                <div className="text-white mt-2">{project.description}</div>
               </div>
-            ))}
-          </div>
-        </div>
+              
+              <div className="flex flex-wrap gap-2 mb-6">
+                {project.technologies.map(tech => (
+                  <span key={tech} className="bg-black text-white px-3 py-1 font-mono text-xs border border-black">
+                    {tech.toUpperCase()}
+                  </span>
+                ))}
+              </div>
 
-        {/* Code Snippet Section */}
-        <div className="mb-12">
-          <h3 className="text-2xl font-bold text-gray-900 mb-6">Code Snippet</h3>
-          <div className="bg-gray-900 rounded-lg p-6 overflow-x-auto">
-            <pre className="text-green-400 text-sm">
-              <code>{project.codeSnippet}</code>
-            </pre>
-          </div>
-        </div>
+              <div className="flex space-x-4">
+                <a href={project.githubUrl} className="flex items-center space-x-2 bg-blue-500 text-white px-4 py-2 font-mono text-sm border-2 border-black hover:bg-blue-600 transition" style={{boxShadow: '3px 3px 0px #000'}}>
+                  <Code size={16} />
+                  <span>VIEW.CODE</span>
+                </a>
+                <a href={project.liveUrl} className="flex items-center space-x-2 bg-green-500 text-white px-4 py-2 font-mono text-sm border-2 border-black hover:bg-green-600 transition" style={{boxShadow: '3px 3px 0px #000'}}>
+                  <ExternalLink size={16} />
+                  <span>LIVE.DEMO</span>
+                </a>
+              </div>
+            </div>
 
-        {/* Features Section */}
-        <div>
-          <h3 className="text-2xl font-bold text-gray-900 mb-6">Key Features</h3>
-          <div className="bg-white rounded-lg p-6 shadow-sm">
-            <p className="text-gray-600 mb-4">
-              This project showcases several important features and technical capabilities:
-            </p>
-            <ul className="space-y-2 text-gray-600">
-              {project.features.map((feature, index) => (
-                <li key={index}>• {feature}</li>
-              ))}
-            </ul>
+            {/* Demo Video Section */}
+            <div className="mb-12">
+              <h3 className="text-xl font-mono font-bold text-black mb-4 border-b-2 border-black pb-2">DEMO.VIDEO</h3>
+              <div className="bg-black border-2 border-black p-8 text-center">
+                <Play size={32} className="mx-auto text-white mb-4" />
+                <p className="text-green-400 font-mono text-sm mb-2">LOADING VIDEO PLAYER...</p>
+                <p className="text-gray-400 font-mono text-xs">FILE: {project.demoVideo}</p>
+              </div>
+            </div>
+
+            {/* Screenshots Section */}
+            <div className="mb-12">
+              <h3 className="text-xl font-mono font-bold text-black mb-4 border-b-2 border-black pb-2">SCREENSHOTS.GALLERY</h3>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {project.screenshots.map((screenshot, index) => (
+                  <div key={index} className="bg-black border-2 border-black">
+                    <div className="bg-gray-200 p-1 border-b border-black">
+                      <span className="font-mono text-xs">IMG_{index + 1}.BMP</span>
+                    </div>
+                    <img 
+                      src={screenshot} 
+                      alt={`Screenshot ${index + 1}`}
+                      className="w-full h-32 object-cover"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Code Snippet Section */}
+            <div className="mb-12">
+              <h3 className="text-xl font-mono font-bold text-black mb-4 border-b-2 border-black pb-2">CODE.SAMPLE</h3>
+              <div className="bg-black border-2 border-black">
+                <div className="bg-gray-200 p-2 border-b border-black flex items-center">
+                  <span className="font-mono text-xs">SOURCE.CODE</span>
+                  <div className="ml-auto flex space-x-1">
+                    <div className="w-2 h-2 bg-black"></div>
+                    <div className="w-2 h-2 bg-black"></div>
+                  </div>
+                </div>
+                <div className="p-4 overflow-x-auto">
+                  <pre className="text-green-400 text-xs font-mono">
+                    <code>{project.codeSnippet}</code>
+                  </pre>
+                </div>
+              </div>
+            </div>
+
+            {/* Features Section */}
+            <div>
+              <h3 className="text-xl font-mono font-bold text-black mb-4 border-b-2 border-black pb-2">FEATURES.LIST</h3>
+              <div className="bg-gray-100 border-2 border-black p-6">
+                <div className="bg-black text-green-400 p-2 font-mono text-xs mb-4">
+                  &gt; LOADING PROJECT SPECIFICATIONS...
+                </div>
+                <ul className="space-y-2 text-black font-mono text-sm">
+                  {project.features.map((feature, index) => (
+                    <li key={index}>• {feature.toUpperCase()}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -386,11 +507,15 @@ const App = () => {
     const project = projects.find(p => p.id === projectId);
     setSelectedProject(project);
     setCurrentView('project');
+    // Reset scroll position to top when navigating to project page
+    window.scrollTo(0, 0);
   };
 
   const handleBackClick = () => {
     setCurrentView('home');
     setSelectedProject(null);
+    // Reset scroll position to top when going back to home
+    window.scrollTo(0, 0);
   };
 
   return (
