@@ -1,8 +1,8 @@
 {
   "name": "reactwebportfolio",
   "version": "1.0.0",
-  "description": "",
-  "main": "portfolio.js",
+  "description": "A retro Mac-inspired portfolio showcasing coding projects",
+  "private": true,
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -13,18 +13,35 @@
     "type": "git",
     "url": "git+https://github.com/will-mp3/ReactWebPortfolio.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["portfolio", "react", "developer"],
+  "author": "Your Name",
   "license": "ISC",
-  "type": "commonjs",
   "bugs": {
     "url": "https://github.com/will-mp3/ReactWebPortfolio/issues"
   },
-  "homepage": "https://github.com/will-mp3/ReactWebPortfolio#readme",
+  "homepage": ".",
   "dependencies": {
     "lucide-react": "^0.525.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-scripts": "^5.0.1"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
