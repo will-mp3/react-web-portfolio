@@ -171,7 +171,7 @@ const HomePage = ({ onProjectClick }) => {
               <div>react.js node.js python.sql mongodb.git</div>
             </div>
             <div className="flex justify-center space-x-4">
-              <a href="#projects" className="bg-red-500 text-white px-6 py-3 font-mono text-sm border-2 border-black hover:bg-blue-600 transition shadow-lg" style={{boxShadow: '4px 4px 0px #000'}}>
+              <a href="#projects" className="bg-red-500 text-white px-6 py-3 font-mono text-sm border-2 border-black hover:bg-red-600 transition shadow-lg" style={{boxShadow: '4px 4px 0px #000'}}>
                 VIEW.PROJECTS
               </a>
               <a href="#contact" className="bg-green-500 text-white px-6 py-3 font-mono text-sm border-2 border-black hover:bg-green-600 transition shadow-lg" style={{boxShadow: '4px 4px 0px #000'}}>
