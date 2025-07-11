@@ -144,12 +144,7 @@ const HomePage = ({ onProjectClick }) => {
         <div className="max-w-6xl mx-auto px-4 py-2">
           <div className="flex justify-between items-center">
             <div className="flex items-center space-x-4">
-              <div className="w-6 h-6 bg-black flex items-center justify-center">
-                <div className="w-4 h-4 bg-red-500 rounded-full flex items-center justify-center">
-                  <div className="w-2 h-2 bg-black rounded-full"></div>
-                </div>
-              </div>
-              <h1 className="text-xl font-mono font-bold text-black">YOUR.NAME</h1>
+              <h1 className="text-xl font-mono font-bold text-black">WILL.KATABIAN</h1>
             </div>
             <nav className="flex space-x-1">
               <a href="#about" className="px-3 py-1 text-black hover:bg-blue-500 hover:text-white font-mono text-sm border border-black transition">About</a>
