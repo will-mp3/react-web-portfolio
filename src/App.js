@@ -130,6 +130,117 @@ const fetchWeatherData = async (city) => {
       "Search for weather by city",
       "Weather alerts and notifications"
     ]
+  },
+  {
+    id: 1,
+    title: "E-Commerce Platform",
+    description: "Full-stack e-commerce application with user authentication, shopping cart, and payment integration.",
+    technologies: ["React", "Node.js", "MongoDB", "Stripe"],
+    demoVideo: "https://example.com/demo1.mp4",
+    screenshots: [
+      "https://via.placeholder.com/600x400/3b82f6/ffffff?text=Homepage",
+      "https://via.placeholder.com/600x400/10b981/ffffff?text=Product+Page",
+      "https://via.placeholder.com/600x400/f59e0b/ffffff?text=Cart"
+    ],
+    codeSnippet: `// User authentication middleware
+const authenticateUser = async (req, res, next) => {
+  try {
+    const token = req.header('Authorization')?.replace('Bearer ', '');
+    if (!token) {
+      return res.status(401).json({ message: 'No token provided' });
+    }
+    
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    req.user = decoded;
+    next();
+  } catch (error) {
+    res.status(401).json({ message: 'Invalid token' });
+  }
+};`,
+    githubUrl: "https://github.com/yourusername/ecommerce-platform",
+    liveUrl: "https://your-ecommerce-demo.com",
+    features: [
+      "User authentication and authorization",
+      "Product catalog with search and filtering",
+      "Shopping cart and checkout process",
+      "Payment integration with Stripe",
+      "Order tracking and history",
+      "Admin dashboard for inventory management"
+    ]
+  },
+  {
+    id: 1,
+    title: "E-Commerce Platform",
+    description: "Full-stack e-commerce application with user authentication, shopping cart, and payment integration.",
+    technologies: ["React", "Node.js", "MongoDB", "Stripe"],
+    demoVideo: "https://example.com/demo1.mp4",
+    screenshots: [
+      "https://via.placeholder.com/600x400/3b82f6/ffffff?text=Homepage",
+      "https://via.placeholder.com/600x400/10b981/ffffff?text=Product+Page",
+      "https://via.placeholder.com/600x400/f59e0b/ffffff?text=Cart"
+    ],
+    codeSnippet: `// User authentication middleware
+const authenticateUser = async (req, res, next) => {
+  try {
+    const token = req.header('Authorization')?.replace('Bearer ', '');
+    if (!token) {
+      return res.status(401).json({ message: 'No token provided' });
+    }
+    
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    req.user = decoded;
+    next();
+  } catch (error) {
+    res.status(401).json({ message: 'Invalid token' });
+  }
+};`,
+    githubUrl: "https://github.com/yourusername/ecommerce-platform",
+    liveUrl: "https://your-ecommerce-demo.com",
+    features: [
+      "User authentication and authorization",
+      "Product catalog with search and filtering",
+      "Shopping cart and checkout process",
+      "Payment integration with Stripe",
+      "Order tracking and history",
+      "Admin dashboard for inventory management"
+    ]
+  },
+  {
+    id: 1,
+    title: "E-Commerce Platform",
+    description: "Full-stack e-commerce application with user authentication, shopping cart, and payment integration.",
+    technologies: ["React", "Node.js", "MongoDB", "Stripe"],
+    demoVideo: "https://example.com/demo1.mp4",
+    screenshots: [
+      "https://via.placeholder.com/600x400/3b82f6/ffffff?text=Homepage",
+      "https://via.placeholder.com/600x400/10b981/ffffff?text=Product+Page",
+      "https://via.placeholder.com/600x400/f59e0b/ffffff?text=Cart"
+    ],
+    codeSnippet: `// User authentication middleware
+const authenticateUser = async (req, res, next) => {
+  try {
+    const token = req.header('Authorization')?.replace('Bearer ', '');
+    if (!token) {
+      return res.status(401).json({ message: 'No token provided' });
+    }
+    
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    req.user = decoded;
+    next();
+  } catch (error) {
+    res.status(401).json({ message: 'Invalid token' });
+  }
+};`,
+    githubUrl: "https://github.com/yourusername/ecommerce-platform",
+    liveUrl: "https://your-ecommerce-demo.com",
+    features: [
+      "User authentication and authorization",
+      "Product catalog with search and filtering",
+      "Shopping cart and checkout process",
+      "Payment integration with Stripe",
+      "Order tracking and history",
+      "Admin dashboard for inventory management"
+    ]
   }
 ];
 
@@ -255,7 +366,7 @@ const HomePage = ({ onProjectClick }) => {
             <div className="p-8">
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {projects.map((project, index) => {
-                  const colors = ['bg-blue-500', 'bg-red-500', 'bg-green-500', 'bg-yellow-500', 'bg-purple-500', 'bg-pink-500'];
+                  const colors = ['bg-[#61bb46]', 'bg-[#fdb827]', 'bg-[#f5821f]', 'bg-[#e03a3e]', 'bg-[#963d97]', 'bg-[#009ddc]'];
                   const bgColor = colors[index % colors.length];
                   return (
                     <div key={project.id} className="bg-gray-100 border-2 border-black hover:bg-white transition cursor-pointer" style={{
