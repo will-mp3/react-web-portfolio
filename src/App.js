@@ -324,12 +324,23 @@ const HomePage = ({ onProjectClick }) => {
                     &gt; LOADING BACKGROUND DATA...
                   </p>
                   <p className="text-black mb-6">
-                    Software engineer with hands-on experience developing full-stack applications using React, JavaScript, Python, and AWS
-                    technologies. Proven ability to deliver secure, production-ready mobile and web solutions through roles in software
-                    engineering and web development. Strong foundation in object-oriented design, data structures, and algorithm design.
+                    Hi, I'm Will Katabian, a 22 year old developer looking to make an impact in the tech world.
+                    I graduated from the College of William & Mary with a B.S. in Computer Science in 2025 and am looking to apply my skills somewhere meaningful, where both I and the company can grow together.
                   </p>
                   <p className="text-black mb-6">
-                    [Add more about your experience, learning journey, and what you enjoy building]
+                    I fell in love with computers in eight grade after my first pc build. 
+                    That feeling of creation kept me hooked until I got to William & Mary where I studied Computer Science. 
+                    I truly love what I do and am excited to continue to build out my skills and explore new ones!
+                  </p>
+                  <p className="text-black mb-6">
+                    I have hands-on experience developing full-stack applications using React, JavaScript, Python, and AWS.
+                    That coupled with my strong foundation in object-oriented design, data structures, and algorithm design proves my ability to deliver secure, production-ready solutions. 
+                  </p>
+                  <p className="text-black mb-6">
+                    I hope this gives you an idea of who I am, but my work tells the real story. I invite you to explore my projects below to see what I really have to offer.
+                  </p>
+                  <p className="text-black mb-6">
+                    Cheers!
                   </p>
                   <div className="flex space-x-4">
                     <a href="[Your Resume URL]" className="flex items-center space-x-2 bg-[#009ddc] text-white px-4 py-2 font-mono text-sm border-2 border-black hover:bg-blue-600 transition" style={{boxShadow: '3px 3px 0px #000'}}>
