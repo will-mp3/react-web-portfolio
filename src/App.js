@@ -282,10 +282,10 @@ const HomePage = ({ onProjectClick }) => {
               <div>react.js node.js python.sql mongodb.git</div>
             </div>
             <div className="flex justify-center space-x-4">
-              <a href="#projects" className="bg-red-500 text-white px-6 py-3 font-mono text-sm border-2 border-black hover:bg-red-600 transition shadow-lg" style={{boxShadow: '4px 4px 0px #000'}}>
+              <a href="#projects" className="bg-[#e03a3e] text-white px-6 py-3 font-mono text-sm border-2 border-black hover:bg-red-600 transition shadow-lg" style={{boxShadow: '4px 4px 0px #000'}}>
                 VIEW.PROJECTS
               </a>
-              <a href="#contact" className="bg-green-500 text-white px-6 py-3 font-mono text-sm border-2 border-black hover:bg-green-600 transition shadow-lg" style={{boxShadow: '4px 4px 0px #000'}}>
+              <a href="#contact" className="bg-[#61bb46] text-white px-6 py-3 font-mono text-sm border-2 border-black hover:bg-green-600 transition shadow-lg" style={{boxShadow: '4px 4px 0px #000'}}>
                 CONTACT.ME
               </a>
             </div>
@@ -323,11 +323,11 @@ const HomePage = ({ onProjectClick }) => {
                     [Add more about your experience, learning journey, and what you enjoy building]
                   </p>
                   <div className="flex space-x-4">
-                    <a href="[Your Resume URL]" className="flex items-center space-x-2 bg-blue-500 text-white px-4 py-2 font-mono text-sm border-2 border-black hover:bg-blue-600 transition" style={{boxShadow: '3px 3px 0px #000'}}>
+                    <a href="[Your Resume URL]" className="flex items-center space-x-2 bg-[#009ddc] text-white px-4 py-2 font-mono text-sm border-2 border-black hover:bg-blue-600 transition" style={{boxShadow: '3px 3px 0px #000'}}>
                       <span>RESUME.PDF</span>
                       <ExternalLink size={16} />
                     </a>
-                    <a href="[Your GitHub URL]" className="flex items-center space-x-2 bg-yellow-500 text-black px-4 py-2 font-mono text-sm border-2 border-black hover:bg-yellow-600 transition" style={{boxShadow: '3px 3px 0px #000'}}>
+                    <a href="[Your GitHub URL]" className="flex items-center space-x-2 bg-[#fdb827] text-black px-4 py-2 font-mono text-sm border-2 border-black hover:bg-yellow-600 transition" style={{boxShadow: '3px 3px 0px #000'}}>
                       <Github size={16} />
                       <span>GITHUB</span>
                     </a>
@@ -423,22 +423,22 @@ const HomePage = ({ onProjectClick }) => {
             </div>
             <div className="p-8">
               <div className="font-mono text-sm text-black mb-4">
-                <span className="text-yellow-500">&gt; ESTABLISHING CONNECTION...</span><br/>
-                <span className="text-green-500">&gt; CONTACT PROTOCOLS READY</span>
+                <span className="text-black">&gt; ESTABLISHING CONNECTION...</span><br/>
+                <span className="text-black">&gt; CONTACT PROTOCOLS READY</span>
               </div>
               <p className="text-black mb-6 max-w-md">
                 I'm always open to discussing new opportunities and interesting projects.
               </p>
               <div className="flex flex-col space-y-3">
-                <a href="mailto:your.email@example.com" className="flex items-center justify-center space-x-2 bg-red-500 text-white px-6 py-3 font-mono text-sm border-2 border-black hover:bg-red-600 transition" style={{boxShadow: '4px 4px 0px #000'}}>
+                <a href="mailto:your.email@example.com" className="flex items-center justify-center space-x-2 bg-[#e03a3e] text-white px-6 py-3 font-mono text-sm border-2 border-black hover:bg-red-600 transition" style={{boxShadow: '4px 4px 0px #000'}}>
                   <Mail size={16} />
                   <span>SEND.EMAIL</span>
                 </a>
-                <a href="[Your LinkedIn URL]" className="flex items-center justify-center space-x-2 bg-blue-500 text-white px-6 py-3 font-mono text-sm border-2 border-black hover:bg-blue-600 transition" style={{boxShadow: '4px 4px 0px #000'}}>
+                <a href="[Your LinkedIn URL]" className="flex items-center justify-center space-x-2 bg-[#009ddc] text-white px-6 py-3 font-mono text-sm border-2 border-black hover:bg-blue-600 transition" style={{boxShadow: '4px 4px 0px #000'}}>
                   <Linkedin size={16} />
                   <span>LINKEDIN.CONNECT</span>
                 </a>
-                <a href="[Your GitHub URL]" className="flex items-center justify-center space-x-2 bg-green-500 text-white px-6 py-3 font-mono text-sm border-2 border-black hover:bg-green-600 transition" style={{boxShadow: '4px 4px 0px #000'}}>
+                <a href="[Your GitHub URL]" className="flex items-center justify-center space-x-2 bg-[#61bb46] text-white px-6 py-3 font-mono text-sm border-2 border-black hover:bg-green-600 transition" style={{boxShadow: '4px 4px 0px #000'}}>
                   <Github size={16} />
                   <span>GITHUB.REPOS</span>
                 </a>
