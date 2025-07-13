@@ -343,24 +343,28 @@ const HomePage = ({ onProjectClick }) => {
                     Cheers!
                   </p>
                   <div className="flex space-x-4">
-                    <a href="[Your Resume URL]" className="flex items-center space-x-2 bg-[#009ddc] text-white px-4 py-2 font-mono text-sm border-2 border-black hover:bg-blue-600 transition" style={{boxShadow: '3px 3px 0px #000'}}>
+                    <a href="/images/resume.pdf" className="flex items-center space-x-2 bg-[#009ddc] text-white px-4 py-2 font-mono text-sm border-2 border-black hover:bg-blue-600 transition" style={{boxShadow: '3px 3px 0px #000'}}>
                       <span>RESUME.PDF</span>
                       <ExternalLink size={16} />
                     </a>
-                    <a href="[Your GitHub URL]" className="flex items-center space-x-2 bg-[#fdb827] text-black px-4 py-2 font-mono text-sm border-2 border-black hover:bg-yellow-600 transition" style={{boxShadow: '3px 3px 0px #000'}}>
+                    <a href="https://github.com/will-mp3" className="flex items-center space-x-2 bg-[#fdb827] text-black px-4 py-2 font-mono text-sm border-2 border-black hover:bg-yellow-600 transition" style={{boxShadow: '3px 3px 0px #000'}}>
                       <Github size={16} />
                       <span>GITHUB</span>
                     </a>
                   </div>
                 </div>
-                <div className="bg-black border-2 border-black h-80 flex flex-col">
-                  <div className="bg-gray-200 p-2 border-b-2 border-black">
-                    <span className="font-mono text-xs">PROFILE.PIC</span>
-                  </div>
-                  <div className="flex-1 flex items-center justify-center text-white font-mono">
-                    [PHOTO_HERE.JPG]
-                  </div>
-                </div>
+                <div className="bg-black border-2 border-black w-71 h-71 flex flex-col">
+  <div className="bg-gray-200 p-2 border-b-2 border-black">
+    <span className="font-mono text-xs">PROFILE.PIC</span>
+  </div>
+  <div className="flex-1">
+    <img 
+      src="/images/me.jpg" 
+      alt="me!" 
+      className="w-full h-full object-cover" 
+    />
+  </div>
+</div>
               </div>
             </div>
           </div>
@@ -450,15 +454,15 @@ const HomePage = ({ onProjectClick }) => {
                 I'm always open to discussing new opportunities and interesting projects.
               </p>
               <div className="flex flex-col space-y-3">
-                <a href="mailto:your.email@example.com" className="flex items-center justify-center space-x-2 bg-[#e03a3e] text-white px-6 py-3 font-mono text-sm border-2 border-black hover:bg-red-600 transition" style={{boxShadow: '4px 4px 0px #000'}}>
+                <a href="mailto:katabianwill@gmail.com" className="flex items-center justify-center space-x-2 bg-[#e03a3e] text-white px-6 py-3 font-mono text-sm border-2 border-black hover:bg-red-600 transition" style={{boxShadow: '4px 4px 0px #000'}}>
                   <Mail size={16} />
                   <span>SEND.EMAIL</span>
                 </a>
-                <a href="[Your LinkedIn URL]" className="flex items-center justify-center space-x-2 bg-[#009ddc] text-white px-6 py-3 font-mono text-sm border-2 border-black hover:bg-blue-600 transition" style={{boxShadow: '4px 4px 0px #000'}}>
+                <a href="https://www.linkedin.com/in/willkatabian/" className="flex items-center justify-center space-x-2 bg-[#009ddc] text-white px-6 py-3 font-mono text-sm border-2 border-black hover:bg-blue-600 transition" style={{boxShadow: '4px 4px 0px #000'}}>
                   <Linkedin size={16} />
                   <span>LINKEDIN.CONNECT</span>
                 </a>
-                <a href="[Your GitHub URL]" className="flex items-center justify-center space-x-2 bg-[#61bb46] text-white px-6 py-3 font-mono text-sm border-2 border-black hover:bg-green-600 transition" style={{boxShadow: '4px 4px 0px #000'}}>
+                <a href="https://github.com/will-mp3" className="flex items-center justify-center space-x-2 bg-[#61bb46] text-white px-6 py-3 font-mono text-sm border-2 border-black hover:bg-green-600 transition" style={{boxShadow: '4px 4px 0px #000'}}>
                   <Github size={16} />
                   <span>GITHUB.REPOS</span>
                 </a>
