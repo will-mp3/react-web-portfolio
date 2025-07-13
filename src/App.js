@@ -258,9 +258,9 @@ const HomePage = ({ onProjectClick }) => {
               <h1 className="text-xl font-mono font-bold text-black">WILL.KATABIAN</h1>
             </div>
             <nav className="flex space-x-1">
-              <a href="#about" className="px-3 py-1 text-black hover:bg-blue-500 hover:text-white font-mono text-sm border border-black transition">About</a>
-              <a href="#projects" className="px-3 py-1 text-black hover:bg-green-500 hover:text-white font-mono text-sm border border-black transition">Projects</a>
-              <a href="#contact" className="px-3 py-1 text-black hover:bg-yellow-500 hover:text-black font-mono text-sm border border-black transition">Contact</a>
+              <a href="#about" className="px-3 py-1 text-black hover:bg-[#009ddc] hover:text-white font-mono text-sm border border-black transition">About</a>
+              <a href="#projects" className="px-3 py-1 text-black hover:bg-[#e03a3e] hover:text-white font-mono text-sm border border-black transition">Projects</a>
+              <a href="#contact" className="px-3 py-1 text-black hover:bg-[#61bb46] hover:text-black font-mono text-sm border border-black transition">Contact</a>
             </nav>
           </div>
         </div>
@@ -277,11 +277,18 @@ const HomePage = ({ onProjectClick }) => {
             <h2 className="text-4xl font-mono font-bold mb-6 text-black">FULL-STACK.DEVELOPER</h2>
             <div className="bg-black text-white p-4 font-mono text-sm mb-6">
               <div className="text-green-400">$ whoami</div>
-              <div>Building modern web applications with clean code...</div>
-              <div className="text-green-400 mt-2">$ ls skills/</div>
-              <div>react.js node.js python.sql mongodb.git</div>
+              <div>Software engineer with full-stack experience building, deploying, and maintaining meaningful products</div>
+              <div className="text-green-400 mt-2">$ ls skills/tools/</div>
+              <div>C, C++, Java, Python, JavaScript, TypeScript, HTML, React, React Native, Node.js, Angular, PyTorch, SQL, NoSQL, AWS, Linux, Kali, Nessus, Atlassian, Git</div>
+              <div className="text-green-400 mt-2">$ ls skills/concepts/</div>
+              <div>Object-Oriented Design, Data Structures, Algorithm Design, Complexity Analysis, CI/CD, System Design, Cloud Computing, DevOps, Agile</div>
+              <div className="text-green-400 mt-2">$ ls certifications/</div>
+              <div>AWS Certified Cloud Practitioner</div>
             </div>
             <div className="flex justify-center space-x-4">
+              <a href="#about" className="bg-[#009ddc] text-white px-6 py-3 font-mono text-sm border-2 border-black hover:bg-blue-600 transition shadow-lg" style={{boxShadow: '4px 4px 0px #000'}}>
+                ABOUT.ME
+              </a>
               <a href="#projects" className="bg-[#e03a3e] text-white px-6 py-3 font-mono text-sm border-2 border-black hover:bg-red-600 transition shadow-lg" style={{boxShadow: '4px 4px 0px #000'}}>
                 VIEW.PROJECTS
               </a>
@@ -317,7 +324,9 @@ const HomePage = ({ onProjectClick }) => {
                     &gt; LOADING BACKGROUND DATA...
                   </p>
                   <p className="text-black mb-6">
-                    [Replace with your bio - talk about your background, passion for coding, and what drives you as a developer]
+                    Software engineer with hands-on experience developing full-stack applications using React, JavaScript, Python, and AWS
+                    technologies. Proven ability to deliver secure, production-ready mobile and web solutions through roles in software
+                    engineering and web development. Strong foundation in object-oriented design, data structures, and algorithm design.
                   </p>
                   <p className="text-black mb-6">
                     [Add more about your experience, learning journey, and what you enjoy building]
