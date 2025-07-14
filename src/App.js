@@ -4,7 +4,7 @@ import { Github, Linkedin, Mail, ExternalLink, Code, Play, ArrowLeft } from 'luc
 // Sample project data - replace with your actual projects
 const projects = [
   {
-    id: 1,
+    id: 6,
     title: "E-Commerce Platform",
     description: "Full-stack e-commerce application with user authentication, shopping cart, and payment integration.",
     technologies: ["React", "Node.js", "MongoDB", "Stripe"],
@@ -41,7 +41,7 @@ const authenticateUser = async (req, res, next) => {
     ]
   },
   {
-    id: 2,
+    id: 5,
     title: "Task Management App",
     description: "Collaborative task management application with real-time updates and team collaboration features.",
     technologies: ["React", "Socket.io", "Express", "PostgreSQL"],
@@ -87,7 +87,7 @@ const updateTask = async (taskId, updates) => {
     ]
   },
   {
-    id: 3,
+    id: 4,
     title: "Weather Dashboard",
     description: "Real-time weather dashboard with location-based forecasts and interactive charts.",
     technologies: ["React", "Chart.js", "OpenWeather API", "Geolocation"],
@@ -132,7 +132,44 @@ const fetchWeatherData = async (city) => {
     ]
   },
   {
-    id: 1,
+    id: 3,
+    title: "E-Commerce Platform",
+    description: "Full-stack e-commerce application with user authentication, shopping cart, and payment integration.",
+    technologies: ["React", "Node.js", "MongoDB", "Stripe"],
+    demoVideo: "https://example.com/demo1.mp4",
+    screenshots: [
+      "https://via.placeholder.com/600x400/3b82f6/ffffff?text=Homepage",
+      "https://via.placeholder.com/600x400/10b981/ffffff?text=Product+Page",
+      "https://via.placeholder.com/600x400/f59e0b/ffffff?text=Cart"
+    ],
+    codeSnippet: `// User authentication middleware
+const authenticateUser = async (req, res, next) => {
+  try {
+    const token = req.header('Authorization')?.replace('Bearer ', '');
+    if (!token) {
+      return res.status(401).json({ message: 'No token provided' });
+    }
+    
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    req.user = decoded;
+    next();
+  } catch (error) {
+    res.status(401).json({ message: 'Invalid token' });
+  }
+};`,
+    githubUrl: "https://github.com/yourusername/ecommerce-platform",
+    liveUrl: "https://your-ecommerce-demo.com",
+    features: [
+      "User authentication and authorization",
+      "Product catalog with search and filtering",
+      "Shopping cart and checkout process",
+      "Payment integration with Stripe",
+      "Order tracking and history",
+      "Admin dashboard for inventory management"
+    ]
+  },
+  {
+    id: 2,
     title: "E-Commerce Platform",
     description: "Full-stack e-commerce application with user authentication, shopping cart, and payment integration.",
     technologies: ["React", "Node.js", "MongoDB", "Stripe"],
@@ -170,76 +207,46 @@ const authenticateUser = async (req, res, next) => {
   },
   {
     id: 1,
-    title: "E-Commerce Platform",
-    description: "Full-stack e-commerce application with user authentication, shopping cart, and payment integration.",
-    technologies: ["React", "Node.js", "MongoDB", "Stripe"],
-    demoVideo: "https://example.com/demo1.mp4",
+    title: "Terminal Blackjack",
+    description: "Blackjack game played in the terminal with rule customization and chip management.",
+    technologies: ["Python"],
+    demoVideo: "Demo video coming soon!",
     screenshots: [
       "https://via.placeholder.com/600x400/3b82f6/ffffff?text=Homepage",
       "https://via.placeholder.com/600x400/10b981/ffffff?text=Product+Page",
       "https://via.placeholder.com/600x400/f59e0b/ffffff?text=Cart"
     ],
-    codeSnippet: `// User authentication middleware
-const authenticateUser = async (req, res, next) => {
-  try {
-    const token = req.header('Authorization')?.replace('Bearer ', '');
-    if (!token) {
-      return res.status(401).json({ message: 'No token provided' });
-    }
-    
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    req.user = decoded;
-    next();
-  } catch (error) {
-    res.status(401).json({ message: 'Invalid token' });
-  }
-};`,
-    githubUrl: "https://github.com/yourusername/ecommerce-platform",
-    liveUrl: "https://your-ecommerce-demo.com",
+    codeSnippet: `// User action handling
+    while 1:
+        print()
+        move = input("Would you like to hit, stand, or double: (H/S/D) ")
+        print()
+        if move == "H":
+            val = self._hit()
+            if val:
+                continue
+            else:
+                break
+
+        elif move == "S":
+            break
+
+        elif move == "D":
+            if (bet * 2) <= self.playerChips:
+                bet = bet * 2
+                self.playerHand.append(self.deck.dealCard())
+                print("You have", self.playerHand[0].printCard() + ",", self.playerHand[1].printCard(), ",", self.playerHand[2].printCard())
+                print()
+                self.playerCount = self._getCount("p")
+                break
+        else:
+            print("Invalid response, please respond again.")
+            print()`,
+    githubUrl: "https://github.com/will-mp3/terminalBlackjack",
     features: [
-      "User authentication and authorization",
-      "Product catalog with search and filtering",
-      "Shopping cart and checkout process",
-      "Payment integration with Stripe",
-      "Order tracking and history",
-      "Admin dashboard for inventory management"
-    ]
-  },
-  {
-    id: 1,
-    title: "E-Commerce Platform",
-    description: "Full-stack e-commerce application with user authentication, shopping cart, and payment integration.",
-    technologies: ["React", "Node.js", "MongoDB", "Stripe"],
-    demoVideo: "https://example.com/demo1.mp4",
-    screenshots: [
-      "https://via.placeholder.com/600x400/3b82f6/ffffff?text=Homepage",
-      "https://via.placeholder.com/600x400/10b981/ffffff?text=Product+Page",
-      "https://via.placeholder.com/600x400/f59e0b/ffffff?text=Cart"
-    ],
-    codeSnippet: `// User authentication middleware
-const authenticateUser = async (req, res, next) => {
-  try {
-    const token = req.header('Authorization')?.replace('Bearer ', '');
-    if (!token) {
-      return res.status(401).json({ message: 'No token provided' });
-    }
-    
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    req.user = decoded;
-    next();
-  } catch (error) {
-    res.status(401).json({ message: 'Invalid token' });
-  }
-};`,
-    githubUrl: "https://github.com/yourusername/ecommerce-platform",
-    liveUrl: "https://your-ecommerce-demo.com",
-    features: [
-      "User authentication and authorization",
-      "Product catalog with search and filtering",
-      "Shopping cart and checkout process",
-      "Payment integration with Stripe",
-      "Order tracking and history",
-      "Admin dashboard for inventory management"
+      "Deck and Card classes for card management",
+      "Chip & bankroll tracking",
+      "Customizable rules"
     ]
   }
 ];
@@ -396,12 +403,6 @@ const HomePage = ({ onProjectClick }) => {
                     <div key={project.id} className="bg-gray-100 border-2 border-black hover:bg-white transition cursor-pointer" style={{
                       boxShadow: '4px 4px 0px #000'
                     }}>
-                      <div className={`h-32 ${bgColor} flex items-center justify-center border-b-2 border-black`}>
-                        <div className="text-white font-mono text-xs text-center">
-                          <div className="w-8 h-8 bg-white mx-auto mb-2 border border-black"></div>
-                          PROJECT.APP
-                        </div>
-                      </div>
                       <div className="p-4">
                         <h4 className="font-mono font-bold text-sm mb-2 text-black">{project.title.toUpperCase().replace(/\s+/g, '.')}</h4>
                         <p className="text-xs text-black mb-3">{project.description}</p>
@@ -551,10 +552,6 @@ const ProjectPage = ({ project, onBackClick }) => {
                 <a href={project.githubUrl} className="flex items-center space-x-2 bg-blue-500 text-white px-4 py-2 font-mono text-sm border-2 border-black hover:bg-blue-600 transition" style={{boxShadow: '3px 3px 0px #000'}}>
                   <Code size={16} />
                   <span>VIEW.CODE</span>
-                </a>
-                <a href={project.liveUrl} className="flex items-center space-x-2 bg-green-500 text-white px-4 py-2 font-mono text-sm border-2 border-black hover:bg-green-600 transition" style={{boxShadow: '3px 3px 0px #000'}}>
-                  <ExternalLink size={16} />
-                  <span>LIVE.DEMO</span>
                 </a>
               </div>
             </div>
