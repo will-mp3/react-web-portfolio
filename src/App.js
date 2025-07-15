@@ -626,7 +626,7 @@ const ProjectPage = ({ project, onBackClick }) => {
               </div>
 
               <div className="flex space-x-4">
-                <a href={project.githubUrl} className="flex items-center space-x-2 bg-green-500 text-white px-4 py-2 font-mono text-sm border-2 border-black hover:bg-blue-600 transition" style={{boxShadow: '3px 3px 0px #000'}}>
+                <a href={project.githubUrl} className="flex items-center space-x-2 bg-green-500 text-white px-4 py-2 font-mono text-sm border-2 border-black hover:bg-green-600 transition" style={{boxShadow: '3px 3px 0px #000'}}>
                   <Code size={16} />
                   <span>VIEW.CODE</span>
                 </a>
