@@ -323,7 +323,8 @@ void read_lines(const char *str, const char *path, int count, int linenumber, in
     features: [
       "Deck and Card classes for card management",
       "Chip & bankroll tracking",
-      "Customizable rules"
+      "Customizable rules",
+      "Multi-round sessions",
     ]
   }
 ];
