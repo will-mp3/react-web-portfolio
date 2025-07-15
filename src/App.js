@@ -4,43 +4,6 @@ import { Github, Linkedin, Mail, ExternalLink, Code, Play, ArrowLeft } from 'luc
 // Sample project data - replace with your actual projects
 const projects = [
   {
-    id: 6,
-    title: "E-Commerce Platform",
-    description: "Full-stack e-commerce application with user authentication, shopping cart, and payment integration.",
-    technologies: ["React", "Node.js", "MongoDB", "Stripe"],
-    demoVideo: "https://example.com/demo1.mp4",
-    screenshots: [
-      "https://via.placeholder.com/600x400/3b82f6/ffffff?text=Homepage",
-      "https://via.placeholder.com/600x400/10b981/ffffff?text=Product+Page",
-      "https://via.placeholder.com/600x400/f59e0b/ffffff?text=Cart"
-    ],
-    codeSnippet: `// User authentication middleware
-const authenticateUser = async (req, res, next) => {
-  try {
-    const token = req.header('Authorization')?.replace('Bearer ', '');
-    if (!token) {
-      return res.status(401).json({ message: 'No token provided' });
-    }
-    
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    req.user = decoded;
-    next();
-  } catch (error) {
-    res.status(401).json({ message: 'Invalid token' });
-  }
-};`,
-    githubUrl: "https://github.com/yourusername/ecommerce-platform",
-    liveUrl: "https://your-ecommerce-demo.com",
-    features: [
-      "User authentication and authorization",
-      "Product catalog with search and filtering",
-      "Shopping cart and checkout process",
-      "Payment integration with Stripe",
-      "Order tracking and history",
-      "Admin dashboard for inventory management"
-    ]
-  },
-  {
     id: 5,
     title: "MumbleGPT",
     description: "Generative Pre-Trained Transformer built using a PyTorch neural network. This model is a character level tokenizer trained on the openwebtext corpus and is capable of generating responses to user prompts. Comes with a GUI for easy interaction.",
