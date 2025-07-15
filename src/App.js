@@ -361,7 +361,7 @@ const HomePage = ({ onProjectClick }) => {
           <div className="bg-white border-4 border-black p-8 shadow-lg" style={{
             boxShadow: '8px 8px 0px #000'
           }}>
-            <h2 className="text-4xl font-mono font-bold mb-6 text-black">FULL-STACK.DEVELOPER</h2>
+            <h2 className="text-4xl font-mono font-bold mb-6 text-black">SOFTWARE.ENGINEER</h2>
             <div className="bg-black text-white p-4 font-mono text-sm mb-6">
               <div className="text-green-400">$ whoami</div>
               <div>Software engineer with full-stack experience building, deploying, and maintaining meaningful products</div>
@@ -372,7 +372,7 @@ const HomePage = ({ onProjectClick }) => {
               <div className="text-green-400 mt-2">$ ls certifications/</div>
               <div>AWS Certified Cloud Practitioner</div>
             </div>
-            <div className="flex justify-center space-x-4">
+            <div className="flex flex-col sm:flex-row justify-center gap-2 sm:gap-4">
               <a href="#about" className="bg-[#009ddc] text-white px-6 py-3 font-mono text-sm border-2 border-black hover:bg-blue-600 transition shadow-lg" style={{boxShadow: '4px 4px 0px #000'}}>
                 ABOUT.ME
               </a>
@@ -591,7 +591,7 @@ const ProjectPage = ({ project, onBackClick }) => {
               <ArrowLeft size={16} />
               <span>BACK.TO.PORTFOLIO</span>
             </button>
-            <h1 className="text-xl font-mono font-bold text-black">YOUR.NAME</h1>
+            <h1 className="text-xl font-mono font-bold text-black">WILL.KATABIAN</h1>
           </div>
         </div>
       </header>
