@@ -133,76 +133,106 @@ const fetchWeatherData = async (city) => {
   },
   {
     id: 3,
-    title: "E-Commerce Platform",
-    description: "Full-stack e-commerce application with user authentication, shopping cart, and payment integration.",
-    technologies: ["React", "Node.js", "MongoDB", "Stripe"],
-    demoVideo: "https://example.com/demo1.mp4",
+    title: "byte manipulation engine",
+    description: "File editor built in C that works by shifting and resizing certain byte portions of a given file, functionality includes file rotation, expansion, contraction, and more.",
+    technologies: ["C"],
+    demoVideo: "Demo video coming soon!",
     screenshots: [
       "https://via.placeholder.com/600x400/3b82f6/ffffff?text=Homepage",
       "https://via.placeholder.com/600x400/10b981/ffffff?text=Product+Page",
       "https://via.placeholder.com/600x400/f59e0b/ffffff?text=Cart"
     ],
-    codeSnippet: `// User authentication middleware
-const authenticateUser = async (req, res, next) => {
-  try {
-    const token = req.header('Authorization')?.replace('Bearer ', '');
-    if (!token) {
-      return res.status(401).json({ message: 'No token provided' });
+    codeSnippet: `// Rotate left functionality
+char *rotate_left(char *buffer, int NROTl, int size)
+{
+    int nrotl = NROTl;
+    int rotations = nrotl % size;
+
+    char *temp = (char *)malloc(size * sizeof(char));
+    if (temp == NULL)
+    {
+        fprintf(stderr, "Memory allocation failed.");
+        exit(EXIT_FAILURE);
     }
-    
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    req.user = decoded;
-    next();
-  } catch (error) {
-    res.status(401).json({ message: 'Invalid token' });
-  }
-};`,
+
+    // Rotate the buffer contents to the left by NROTl positions
+    for (int i = 0; i < size; i++)
+    {
+        temp[i] = buffer[(i + rotations) % size];
+    }
+
+    // Copy rotated content back to the original buffer
+    memcpy(buffer, temp, size);
+
+    free(temp);
+
+    return buffer;
+}`,
     githubUrl: "https://github.com/yourusername/ecommerce-platform",
     liveUrl: "https://your-ecommerce-demo.com",
     features: [
-      "User authentication and authorization",
-      "Product catalog with search and filtering",
-      "Shopping cart and checkout process",
-      "Payment integration with Stripe",
-      "Order tracking and history",
-      "Admin dashboard for inventory management"
+      "-h -- show usage statement and exit",
+      "-l NROTL -- rotate the file NROTL bytes left",
+      "-x NEXPAND -- expand the file NEXPAND bytes",
+      "-v CHAR -- The character value that is used when expanding the file",
+      "-c NCONTRACT -- contract the file NCONTRACT bytes",
+      "-k NKEEP -- keep NKEEP bytes of the file, starting at the offset provided by -s",
+      "-s NSKIP -- skip NSKIP bytes before keeping"
     ]
   },
   {
     id: 2,
-    title: "E-Commerce Platform",
-    description: "Full-stack e-commerce application with user authentication, shopping cart, and payment integration.",
-    technologies: ["React", "Node.js", "MongoDB", "Stripe"],
-    demoVideo: "https://example.com/demo1.mp4",
+    title: "grep recreation",
+    description: "Recreation of the grep command line tool built in C, features include line number printing, quiet mode, and context lines.",
+    technologies: ["C"],
+    demoVideo: "Demo video coming soon!",
     screenshots: [
       "https://via.placeholder.com/600x400/3b82f6/ffffff?text=Homepage",
       "https://via.placeholder.com/600x400/10b981/ffffff?text=Product+Page",
       "https://via.placeholder.com/600x400/f59e0b/ffffff?text=Cart"
     ],
-    codeSnippet: `// User authentication middleware
-const authenticateUser = async (req, res, next) => {
-  try {
-    const token = req.header('Authorization')?.replace('Bearer ', '');
-    if (!token) {
-      return res.status(401).json({ message: 'No token provided' });
+    codeSnippet: `// Read lines function with standard output
+void read_lines(const char *str, const char *path, int count, int linenumber, int quiet, int beforecontext, int context_num)
+{
+    FILE *fh = fopen(path, "r");
+    if (fh == NULL)
+    {
+        perror("Error opening file");
+        exit(1);
     }
+
+    char *line = NULL;
+    size_t n = 0;
+    int match_count = 0;
+    int line_num = 1;
+
+    struct queue context_queue;
+    list_init(&context_queue);
+    context_queue.max_capacity = context_num + 1;
     
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    req.user = decoded;
-    next();
-  } catch (error) {
-    res.status(401).json({ message: 'Invalid token' });
-  }
-};`,
-    githubUrl: "https://github.com/yourusername/ecommerce-platform",
-    liveUrl: "https://your-ecommerce-demo.com",
+    while (getline(&line, &n, fh) != -1)
+    {
+        if (strstr(line, str) != NULL)
+        {
+            if (linenumber)
+            {
+                printf("%d:", line_num);
+            }
+            printf("%s", line);
+        }
+        line_num++;
+    }
+    free(line);
+    fclose(fh);
+    exit(0);
+}`,
+    githubUrl: "https://github.com/will-mp3/sgrep",
     features: [
-      "User authentication and authorization",
-      "Product catalog with search and filtering",
-      "Shopping cart and checkout process",
-      "Payment integration with Stripe",
-      "Order tracking and history",
-      "Admin dashboard for inventory management"
+      "-h -- Printable usage statement",
+      "-c -- Suppress normal output; instead print a count of matching lines for the input file",
+      "-n -- Prefix each line of output with the 1-based line number of the file",
+      "-q -- Quiet; do not write anything to stdout. Exit immediately with zero status if any match was found",
+      "-B NUM -- Print NUM lines of leading context before matching lines"
     ]
   },
   {
@@ -212,36 +242,46 @@ const authenticateUser = async (req, res, next) => {
     technologies: ["Python"],
     demoVideo: "Demo video coming soon!",
     screenshots: [
-      "https://via.placeholder.com/600x400/3b82f6/ffffff?text=Homepage",
-      "https://via.placeholder.com/600x400/10b981/ffffff?text=Product+Page",
-      "https://via.placeholder.com/600x400/f59e0b/ffffff?text=Cart"
+      "/images/terminal.blackjack/bj1.png",
+      "/images/terminal.blackjack/bj2.png",
+      "/images/terminal.blackjack/bj3.png"
     ],
-    codeSnippet: `// User action handling
-    while 1:
-        print()
-        move = input("Would you like to hit, stand, or double: (H/S/D) ")
-        print()
-        if move == "H":
-            val = self._hit()
-            if val:
-                continue
+    codeSnippet: `// Card & Deck classes for Blackjack game
+
+    class Card:
+        def __init__(self, card, suit):
+            self.card = card
+            self.suit = suit
+
+        def getVal(self):
+            if self.card in ['Jack', 'Queen', 'King']:
+                return 10
+            elif self.card == 'Ace':
+                return 11
             else:
-                break
+                return int(self.card)
 
-        elif move == "S":
-            break
+        def printCard(self):
+            return str(self.card) + " of " + str(self.suit)
+    
+    import random
+    from .card import Card
+    class Deck:
+        SUITS = ['Hearts', 'Diamonds', 'Clubs', 'Spades']
+        CARDS = ['Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King']
 
-        elif move == "D":
-            if (bet * 2) <= self.playerChips:
-                bet = bet * 2
-                self.playerHand.append(self.deck.dealCard())
-                print("You have", self.playerHand[0].printCard() + ",", self.playerHand[1].printCard(), ",", self.playerHand[2].printCard())
-                print()
-                self.playerCount = self._getCount("p")
-                break
-        else:
-            print("Invalid response, please respond again.")
-            print()`,
+        def __init__(self, deckCount = 2):
+            self.deckCount = deckCount
+            self.deck = [Card(card, suit) for card in Deck.CARDS for suit in Deck.SUITS] * self.deckCount
+
+        def shuffleDeck(self):
+            random.shuffle(self.deck)
+
+        def dealCard(self):
+            val = random.randint(0, len(self.deck) - 1)
+            card = self.deck[val]
+            self.deck.remove(card)
+            return card`,
     githubUrl: "https://github.com/will-mp3/terminalBlackjack",
     features: [
       "Deck and Card classes for card management",
@@ -578,7 +618,7 @@ const ProjectPage = ({ project, onBackClick }) => {
                     <img 
                       src={screenshot} 
                       alt={`Screenshot ${index + 1}`}
-                      className="w-full h-32 object-cover"
+                      className="w-full h-52 object-cover"
                     />
                   </div>
                 ))}
