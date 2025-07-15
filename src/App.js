@@ -88,47 +88,74 @@ const updateTask = async (taskId, updates) => {
   },
   {
     id: 4,
-    title: "Weather Dashboard",
-    description: "Real-time weather dashboard with location-based forecasts and interactive charts.",
-    technologies: ["React", "Chart.js", "OpenWeather API", "Geolocation"],
-    demoVideo: "https://example.com/demo3.mp4",
+    title: "Bigram Language Model",
+    description: "Implements a Bigram Language Model, a character level tokenizer capable of making text predictions based on given context. Trained on a text corpus split into blocks using gradient descent and backpropagation; optimized using AdamW.",
+    technologies: ["Python", "PyTorch", "Jupyter", "Cuda/mps"],
+    demoVideo: "Demo video coming soon!",
     screenshots: [
       "https://via.placeholder.com/600x400/14b8a6/ffffff?text=Weather+Dashboard",
       "https://via.placeholder.com/600x400/f97316/ffffff?text=Forecast+Chart",
       "https://via.placeholder.com/600x400/84cc16/ffffff?text=Location+Search"
     ],
-    codeSnippet: `// Weather API integration with error handling
-const fetchWeatherData = async (city) => {
-  try {
-    const response = await fetch(
-      \`https://api.openweathermap.org/data/2.5/weather?q=\${city}&appid=\${API_KEY}&units=metric\`
-    );
+    codeSnippet: `# Bigram Language Model implementation
+class BigramLanguageModel(nn.Module):
+    def __init__(self, vocab_size):
+        # calls the constructor of nn.Module
+        super().__init__()
+        # creates an embedding table
+        self.token_embedding_table = nn.Embedding(vocab_size, vocab_size)
+        
+    def forward(self, index, targets=None):
+        logits = self.token_embedding_table(index) # raw predictions
+        
+        if targets is None: # inference mode
+            loss = None
+        else:
+            # batch, time, channels(vocabulary)
+            # B (Batch Size) -> Number of sequences processed at once
+            # T (Time Steps / Sequence Length) -> Number of tokens in each sequence
+            # C (Vocabulary Size / Channels) -> Number of possible tokens
+            B, T, C = logits.shape
+            
+            # reshape batch and time into a single dimension 
+            # so that each token is treated as a separate training example
+            logits = logits.view(B*T, C)
+            targets = targets.view(B*T) # targets also reshaped into a single B*T vector
+            
+            # compute cross-entropy loss to measure how far our predictions (logits) are from the true targets
+            loss = F.cross_entropy(logits, targets)
+        
+        return logits, loss
     
-    if (!response.ok) {
-      throw new Error('Weather data not found');
-    }
+    def generate(self, index, max_new_tokens):
+        # index is (B, T) array of indices in the current context
+        for _ in range(max_new_tokens):
+            # get the predictions
+            logits, loss = self.forward(index)
+            # extracts only the last time step’s logits
+            logits = logits[:, -1, :] # becomes (B, C)
+            # apply softmax to get probabilities for each possible next token
+            probs = F.softmax(logits, dim=-1) # (B, C)
+            # samples one token index from the probability distribution
+            index_next = torch.multinomial(probs, num_samples=1) # (B, 1)
+            # append sampled index to the running sequence
+            index = torch.cat((index, index_next), dim=1) # (B, T+1)
+        return index
     
-    const data = await response.json();
-    return {
-      temperature: data.main.temp,
-      description: data.weather[0].description,
-      humidity: data.main.humidity,
-      windSpeed: data.wind.speed
-    };
-  } catch (error) {
-    console.error('Error fetching weather:', error);
-    return null;
-  }
-};`,
-    githubUrl: "https://github.com/yourusername/weather-dashboard",
-    liveUrl: "https://your-weather-demo.com",
+model = BigramLanguageModel(vocab_size)
+m = model.to(device) 
+
+context = torch.zeros((1,1), dtype=torch.long, device=device)
+generated_chars = decode(m.generate(context, max_new_tokens=500)[0].tolist())
+print(generated_chars) `,
+    githubUrl: "https://github.com/will-mp3/BigramLanguageModel",
     features: [
-      "Current weather conditions",
-      "7-day weather forecast",
-      "Interactive charts and graphs",
-      "Location-based weather detection",
-      "Search for weather by city",
-      "Weather alerts and notifications"
+      "Character-level tokenization",
+      "Text prediction based on context",
+      "Trained on Wizard Of Oz text corpus",
+      "Gradient descent and backpropagation",
+      "Optimized using AdamW",
+      "Supports CUDA/MPS for GPU acceleration",
     ]
   },
   {
@@ -183,7 +210,7 @@ char *rotate_left(char *buffer, int NROTl, int size)
   {
     id: 2,
     title: "grep recreation",
-    description: "Recreation of the grep command line tool built in C, features include line number printing, quiet mode, and context lines.",
+    description: "Recreation of the grep command line tool built in C, allows for word/phrase searching and includes features such as line number printing, quiet mode, and context lines.",
     technologies: ["C"],
     demoVideo: "Demo video coming soon!",
     screenshots: [
@@ -246,7 +273,7 @@ void read_lines(const char *str, const char *path, int count, int linenumber, in
       "/images/terminal.blackjack/bj2.png",
       "/images/terminal.blackjack/bj3.png"
     ],
-    codeSnippet: `// Card & Deck classes for Blackjack game
+    codeSnippet: `# Card & Deck classes for Blackjack game
 
     class Card:
         def __init__(self, card, suit):
