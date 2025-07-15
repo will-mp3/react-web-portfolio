@@ -6,7 +6,7 @@ const projects = [
   {
     id: 5,
     title: "MumbleGPT",
-    description: "Generative Pre-Trained Transformer built using a PyTorch neural network. This model is a character level tokenizer trained on the openwebtext corpus and is capable of generating responses to user prompts. Comes with a GUI for easy interaction.",
+    description: "Generative Pre-Trained Transformer built using a PyTorch neural network. This model is a character-level tokenizer trained on the openwebtext corpus and is capable of generating responses to user prompts. Comes paired with a UI to prompt user input.",
     technologies: ["Python", "PyTorch", "Tkinter", "Jupyter", "Cuda/mps"],
     demoVideo: "Demo video coming soon!",
     screenshots: [
@@ -91,7 +91,7 @@ class MultiHeadAttention(nn.Module):
       "Transformer block architecture",
       "Feedforward neural network with Multihead attention",
       "Trained on the openwebtext corpus",
-      "Character level tokenizer",
+      "Character-level tokenizer",
       "Cuda/MPS support for GPU acceleration",
       "Custom weights initialization",
       "Pickle model saving",
@@ -101,7 +101,7 @@ class MultiHeadAttention(nn.Module):
   {
     id: 4,
     title: "Bigram Language Model",
-    description: "Implements a Bigram Language Model, a character level tokenizer capable of making text predictions based on given context. Trained on a text corpus split into blocks using gradient descent and backpropagation; optimized using AdamW.",
+    description: "Implements a Bigram Language Model, a character-level tokenizer capable of making text predictions based on given context. Trained on a text corpus split into blocks using gradient descent and backpropagation; optimized using AdamW.",
     technologies: ["Python", "PyTorch", "Jupyter", "Cuda/mps"],
     demoVideo: "Demo video coming soon!",
     screenshots: [
