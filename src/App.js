@@ -361,7 +361,7 @@ const HomePage = ({ onProjectClick }) => {
           <div className="bg-white border-4 border-black p-8 shadow-lg" style={{
             boxShadow: '8px 8px 0px #000'
           }}>
-            <h2 className="text-1xl sm:text-4xl font-mono font-bold mb-4 sm:mb-6 text-black">FULL-STACK.DEVELOPER</h2>
+            <h2 className="text-1.5xl sm:text-4xl font-mono font-bold mb-4 sm:mb-6 text-black">FULL-STACK.DEVELOPER</h2>
             <div className="bg-black text-white p-4 font-mono text-sm mb-6">
               <div className="text-green-400">$ whoami</div>
               <div>Software engineer with full-stack experience building, deploying, and maintaining meaningful products</div>
