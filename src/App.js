@@ -340,7 +340,7 @@ const HomePage = ({ onProjectClick }) => {
       {/* Header - Classic Mac Menu Bar */}
       <header className="bg-gray-200 border-b-2 border-black">
         <div className="max-w-6xl mx-auto px-4 py-2">
-          <div className="flex justify-between items-center">
+          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
             <div className="flex items-center space-x-4">
               <h1 className="text-xl font-mono font-bold text-black">WILL.KATABIAN</h1>
             </div>
