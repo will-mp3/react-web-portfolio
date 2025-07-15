@@ -402,6 +402,7 @@ const HomePage = ({ onProjectClick }) => {
               <div className="flex-1 text-center">
                 <span className="font-mono text-sm font-bold">ABOUT.ME</span>
               </div>
+              <div className="w-[64px]"></div>
             </div>
             <div className="p-8">
               <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -473,6 +474,7 @@ const HomePage = ({ onProjectClick }) => {
               <div className="flex-1 text-center">
                 <span className="font-mono text-sm font-bold">PROJECTS.FOLDER</span>
               </div>
+              <div className="w-[64px]"></div>
             </div>
             <div className="p-8">
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -525,6 +527,7 @@ const HomePage = ({ onProjectClick }) => {
               <div className="flex-1 text-center">
                 <span className="font-mono text-sm font-bold">CONTACT.DIALOG</span>
               </div>
+              <div className="w-[64px]"></div>
             </div>
             <div className="p-8">
               <div className="font-mono text-sm text-black mb-4">
@@ -610,6 +613,7 @@ const ProjectPage = ({ project, onBackClick }) => {
             <div className="flex-1 text-center">
               <span className="font-mono text-sm font-bold">{project.title.toUpperCase().replace(/\s+/g, '.')}</span>
             </div>
+            <div className="w-[64px]"></div>
           </div>
           
           <div className="p-8">
