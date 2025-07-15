@@ -42,48 +42,95 @@ const authenticateUser = async (req, res, next) => {
   },
   {
     id: 5,
-    title: "Task Management App",
-    description: "Collaborative task management application with real-time updates and team collaboration features.",
-    technologies: ["React", "Socket.io", "Express", "PostgreSQL"],
-    demoVideo: "https://example.com/demo2.mp4",
+    title: "MumbleGPT",
+    description: "Generative Pre-Trained Transformer built using a PyTorch neural network. This model is a character level tokenizer trained on the openwebtext corpus and is capable of generating responses to user prompts. Comes with a GUI for easy interaction.",
+    technologies: ["Python", "PyTorch", "Tkinter", "Jupyter", "Cuda/mps"],
+    demoVideo: "Demo video coming soon!",
     screenshots: [
       "https://via.placeholder.com/600x400/8b5cf6/ffffff?text=Dashboard",
       "https://via.placeholder.com/600x400/ef4444/ffffff?text=Task+Board",
       "https://via.placeholder.com/600x400/06b6d4/ffffff?text=Team+View"
     ],
-    codeSnippet: `// Real-time task updates with Socket.io
-socket.on('taskUpdated', (updatedTask) => {
-  setTasks(prevTasks => 
-    prevTasks.map(task => 
-      task.id === updatedTask.id ? updatedTask : task
-    )
-  );
-});
-
-const updateTask = async (taskId, updates) => {
-  try {
-    const response = await fetch(\`/api/tasks/\${taskId}\`, {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(updates)
-    });
+    codeSnippet: `# Multihead Attention implementation and Head class
+class Head(nn.Module):
+    # one head of self-attention
     
-    if (response.ok) {
-      socket.emit('taskUpdate', { taskId, updates });
-    }
-  } catch (error) {
-    console.error('Failed to update task:', error);
-  }
-};`,
-    githubUrl: "https://github.com/yourusername/task-manager",
-    liveUrl: "https://your-task-manager-demo.com",
+    def __init__(self, head_size):
+        # calls the constructor of nn.Module
+        super().__init__()
+        
+        # each token is transformed into a query, key, and value using learned linear layers
+        # head_size is the dimension of this head's internal representation
+        self.key = nn.Linear(n_embd, head_size, bias=False)
+        self.query = nn.Linear(n_embd, head_size, bias=False)
+        self.value = nn.Linear(n_embd, head_size, bias=False)
+        
+        # creates a lower-triangular mask (tril) to prevent tokens from attending to future tokens
+        self.register_buffer('tril', torch.tril(torch.ones(block_size, block_size)))
+        
+        # applies dropout to the attention weights to regularize training
+        self.dropout = nn.Dropout(dropout)
+        
+    def forward(self, x):
+        # input of size (batch, time-step, channels)
+        # output of size (batch, time-step, head size)
+        
+        # input x: shape (Batch, Time, Channels)
+        # outputs k and q: shape (B, T, head_size)
+        B,T,C = x.shape
+        k = self.key(x) # (B,T,hs)
+        q = self.query(x) # (B,T,hs)
+        
+        # compute raw attention scores via scaled dot product.
+        # shape becomes (B, T, T) representing attention between all pairs of tokens
+        wei = q @ k.transpose(-2,-1) * k.shape[-1]**-0.5 # (B, T, hs) @ (B, hs, T) -> (B, T, T)
+        
+        # masks out future tokens (above the diagonal), setting them to -inf so softmax zeroes them
+        wei = wei.masked_fill(self.tril[:T, :T] == 0, float('-inf')) # (B, T, T)
+        
+        # converts attention scores to probabilities and applies dropout
+        wei = F.softmax(wei, dim=-1) # (B, T, T)
+        wei = self.dropout(wei)
+        
+        # uses the attention weights to compute a weighted sum of values
+        v = self.value(x) # # (B, T, hs)
+        out = wei @ v # (B, T, T) @ (B, T, hs) -> (B, T, hs)
+        return out
+
+class MultiHeadAttention(nn.Module):
+    # multiple heads of attention in parallel
+    
+    def __init__(self, num_heads, head_size):
+        # combines multiple Heads in parallel
+        # the outputs are concatenated and passed through a final linear layer to project back to n_embd
+        
+        # calls the constructor of nn.Module
+        super().__init__()
+        
+        # creates multiple Head modules, each representing a self-attention head
+        self.heads = nn.ModuleList([Head(head_size) for _ in range(num_heads)])
+        
+        # pass heads through a final linear projection to fuse their information and bring dimensionality back
+        self.proj = nn.Linear(head_size * num_heads, n_embd)
+        
+        # apply dropout to prevent overfitting
+        self.dropout = nn.Dropout(dropout)
+        
+    def forward(self, x):
+        # concatenates each head’s output, projects it back to the full embedding size
+        out = torch.cat([h(x) for h in self.heads], dim=-1)
+        
+        # apply dropout to prevent overfitting
+        out = self.dropout(self.proj(out))
+        return out`,
+    githubUrl: "https://github.com/will-mp3/MumbleGPT",
     features: [
-      "Real-time collaboration with Socket.io",
-      "Drag-and-drop task organization",
-      "Team member management",
-      "Project timelines and deadlines",
-      "File attachments and comments",
-      "Email notifications and reminders"
+      "Transformer block architecture",
+      "Feedforward neural network with Multihead attention",
+      "Trained on the openwebtext corpus",
+      "Custom weights initialization",
+      "Pickle model saving",
+      "Custom user interface with Tkinter",
     ]
   },
   {
