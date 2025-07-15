@@ -91,6 +91,8 @@ class MultiHeadAttention(nn.Module):
       "Transformer block architecture",
       "Feedforward neural network with Multihead attention",
       "Trained on the openwebtext corpus",
+      "Character level tokenizer",
+      "Cuda/MPS support for GPU acceleration",
       "Custom weights initialization",
       "Pickle model saving",
       "Custom user interface with Tkinter",
