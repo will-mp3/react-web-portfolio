@@ -265,7 +265,7 @@ void read_lines(const char *str, const char *path, int count, int linenumber, in
   {
     id: 1,
     title: "Terminal Blackjack",
-    description: "Blackjack game played in the terminal with rule customization and chip management, allows for deck size customization and multi-round sessions.",
+    description: "Blackjack game played in the terminal with rule customization and chip management, allows for deck size customization and multi-round sessions. First ever project, added for growth tracking.",
     technologies: ["Python"],
     demoVideo: "Demo video coming soon!",
     screenshots: [
