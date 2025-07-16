@@ -280,11 +280,7 @@ void read_lines(const char *str, const char *path, int count, int linenumber, in
     description: "Custom React website housing my entire developer portfolio. Contains information about me, my projects, and how to contact me.",
     technologies: ["React", "JavaScript", "HTML", "Tailwind CSS"],
     demoVideo: "This is the demo! Take a look around!",
-    screenshots: [
-      "/images/terminal.blackjack/bj1.png",
-      "/images/terminal.blackjack/bj2.png",
-      "/images/terminal.blackjack/bj3.png"
-    ],
+    screenshots: [],
     codeSnippet: `{/* Projects Section - Mac Folder Style */}
     <section id="projects" className="py-20">
     <div className="max-w-6xl mx-auto px-4">
