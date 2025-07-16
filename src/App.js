@@ -276,57 +276,74 @@ void read_lines(const char *str, const char *path, int count, int linenumber, in
   },
   {
     id: 1,
-    title: "Terminal Blackjack",
-    description: "Blackjack game played in the terminal with rule customization and chip management, allows for deck size customization and multi-round sessions. First ever project, added for growth tracking.",
-    technologies: ["Python"],
-    demoVideo: "Demo video coming soon!",
+    title: "React Web Portfolio",
+    description: "Custom React website housing my entire developer portfolio. Contains information about me, my projects, and how to contact me.",
+    technologies: ["React", "JavaScript", "HTML", "Tailwind CSS"],
+    demoVideo: "This is the demo! Take a look around!",
     screenshots: [
       "/images/terminal.blackjack/bj1.png",
       "/images/terminal.blackjack/bj2.png",
       "/images/terminal.blackjack/bj3.png"
     ],
-    codeSnippet: `# Card & Deck classes for Blackjack game
-
-    class Card:
-        def __init__(self, card, suit):
-            self.card = card
-            self.suit = suit
-
-        def getVal(self):
-            if self.card in ['Jack', 'Queen', 'King']:
-                return 10
-            elif self.card == 'Ace':
-                return 11
-            else:
-                return int(self.card)
-
-        def printCard(self):
-            return str(self.card) + " of " + str(self.suit)
-    
-    import random
-    from .card import Card
-    class Deck:
-        SUITS = ['Hearts', 'Diamonds', 'Clubs', 'Spades']
-        CARDS = ['Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King']
-
-        def __init__(self, deckCount = 2):
-            self.deckCount = deckCount
-            self.deck = [Card(card, suit) for card in Deck.CARDS for suit in Deck.SUITS] * self.deckCount
-
-        def shuffleDeck(self):
-            random.shuffle(self.deck)
-
-        def dealCard(self):
-            val = random.randint(0, len(self.deck) - 1)
-            card = self.deck[val]
-            self.deck.remove(card)
-            return card`,
-    githubUrl: "https://github.com/will-mp3/terminalBlackjack",
+    codeSnippet: `{/* Projects Section - Mac Folder Style */}
+    <section id="projects" className="py-20">
+    <div className="max-w-6xl mx-auto px-4">
+        <div className="bg-white border-4 border-black mb-8" style={{
+        boxShadow: '8px 8px 0px #000'
+        }}>
+        <div className="bg-gray-200 border-b-2 border-black p-2 flex items-center">
+            <div className="flex space-x-2">
+            <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+            <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+            <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+            </div>
+            <div className="flex-1 text-center">
+            <span className="font-mono text-sm font-bold">PROJECTS.FOLDER</span>
+            </div>
+            <div className="w-[64px]"></div>
+        </div>
+        <div className="p-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {projects.map((project, index) => {
+                const colors = ['bg-[#61bb46]', 'bg-[#fdb827]', 'bg-[#f5821f]', 'bg-[#e03a3e]', 'bg-[#963d97]', 'bg-[#009ddc]'];
+                const bgColor = colors[index % colors.length];
+                return (
+                <div key={project.id} className="bg-gray-100 border-2 border-black hover:bg-white transition cursor-pointer" style={{
+                    boxShadow: '4px 4px 0px #000'
+                }}>
+                    <div className="p-4">
+                    <h4 className="font-mono font-bold text-sm mb-2 text-black">{project.title.toUpperCase().replace(/s+/g, '.')}</h4>
+                    <p className="text-xs text-black mb-3">{project.description}</p>
+                    <div className="flex flex-wrap gap-1 mb-3">
+                        {project.technologies.map(tech => (
+                        <span key={tech} className="bg-black text-white px-2 py-1 text-xs font-mono">
+                            {tech.toUpperCase()}
+                        </span>
+                        ))}
+                    </div>
+                    <button 
+                        onClick={() => onProjectClick(project.id)}
+                        className={"font-mono text-xs text-white {bgColor} hover:opacity-80 border border-black px-2 py-1 transition"}
+                        style={{boxShadow: '2px 2px 0px #000'}}
+                    >
+                        OPEN.FILE
+                    </button>
+                    </div>
+                </div>
+                );
+            })}
+            </div>
+        </div>
+        </div>
+    </div>
+    </section>`,
+    githubUrl: "https://github.com/will-mp3/ReactWebPortfolio",
     features: [
-      "Deck and Card classes for card management",
-      "Chip & bankroll tracking",
-      "Customizable rules",
-      "Multi-round sessions",
+      "Classic Apple Macintosh design & color scheme",
+      "Developer bio and skills showcase",
+      "Projects section with detailed descriptions",
+      "Embedded demo videos and screenshots",
+      "Links to all contact methods and social media profiles",
     ]
   }
 ];
