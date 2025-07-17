@@ -574,6 +574,7 @@ const HomePage = ({ onProjectClick }) => {
 
 // Project Detail Page Component
 const ProjectPage = ({ project, onBackClick }) => {
+    const [fullscreenImage, setFullscreenImage] = useState(null);
   if (!project) {
     return (
       <div className="min-h-screen bg-gray-300 flex items-center justify-center" style={{
@@ -662,24 +663,58 @@ const ProjectPage = ({ project, onBackClick }) => {
                 <p className="text-gray-400 font-mono text-xs">FILE: {project.demoVideo}</p>
               </div>
             </div>
-
+            
             {/* Screenshots Section */}
             <div className="mb-12">
-              <h3 className="text-xl font-mono font-bold text-black mb-4 border-b-2 border-black pb-2">SCREENSHOTS.GALLERY</h3>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <h3 className="text-xl font-mono font-bold text-black mb-4 border-b-2 border-black pb-2">SCREENSHOTS.GALLERY</h3>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {project.screenshots.map((screenshot, index) => (
-                  <div key={index} className="bg-black border-2 border-black">
+                <div key={index} className="bg-black border-2 border-black cursor-pointer hover:opacity-80 transition">
                     <div className="bg-gray-200 p-1 border-b border-black">
-                      <span className="font-mono text-xs">IMG_{index + 1}.BMP</span>
+                    <span className="font-mono text-xs">IMG_{index + 1}.BMP</span>
                     </div>
                     <img 
-                      src={screenshot} 
-                      alt={`Screenshot ${index + 1}`}
-                      className="w-full h-52 object-cover"
+                    src={screenshot} 
+                    alt={`Screenshot ${index + 1}`}
+                    className="w-full h-52 object-cover"
+                    onClick={() => setFullscreenImage(screenshot)}
                     />
-                  </div>
+                </div>
                 ))}
-              </div>
+            </div>
+            
+            {/* Fullscreen Modal */}
+            {fullscreenImage && (
+            <div 
+                className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 p-4"
+                onClick={() => setFullscreenImage(null)}
+            >
+                <div className="bg-white border-4 border-black max-w-4xl max-h-full" style={{boxShadow: '8px 8px 0px #000'}}>
+                <div className="bg-gray-200 border-b-2 border-black p-2 flex items-center">
+                    <div className="flex space-x-2">
+                    <div className="w-3 h-3 bg-red-500 rounded-full cursor-pointer" onClick={() => setFullscreenImage(null)}></div>
+                    <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                    <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                    </div>
+                    <div className="flex-1 text-center">
+                    <span className="font-mono text-sm font-bold">FULLSCREEN.VIEW</span>
+                    </div>
+                    <div className="w-[64px]"></div>
+                </div>
+                
+                <div className="p-4">
+                <div className="w-full aspect-[4/3] flex items-center justify-center bg-white-100">
+                    <img 
+                    src={fullscreenImage} 
+                    alt="Fullscreen view"
+                    className="max-w-full max-h-full object-contain"
+                    />
+                </div>
+                </div>
+                
+                </div>
+            </div>
+            )}
             </div>
 
             {/* Code Snippet Section */}
