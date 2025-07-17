@@ -226,9 +226,9 @@ char *rotate_left(char *buffer, int NROTl, int size)
     technologies: ["C"],
     demoVideo: "Demo video coming soon!",
     screenshots: [
-      "https://via.placeholder.com/600x400/3b82f6/ffffff?text=Homepage",
-      "https://via.placeholder.com/600x400/10b981/ffffff?text=Product+Page",
-      "https://via.placeholder.com/600x400/f59e0b/ffffff?text=Cart"
+      "/images/sgrep/sgrep1.png",
+      "/images/sgrep/sgrep2.png",
+      "/images/sgrep/sgrep3.png"
     ],
     codeSnippet: `// Read lines function with standard output
 void read_lines(const char *str, const char *path, int count, int linenumber, int quiet, int beforecontext, int context_num)
