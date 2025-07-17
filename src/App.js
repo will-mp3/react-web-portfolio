@@ -105,9 +105,9 @@ class MultiHeadAttention(nn.Module):
     technologies: ["Python", "PyTorch", "Jupyter", "Cuda/mps"],
     demoVideo: "Demo video coming soon!",
     screenshots: [
-      "https://via.placeholder.com/600x400/14b8a6/ffffff?text=Weather+Dashboard",
-      "https://via.placeholder.com/600x400/f97316/ffffff?text=Forecast+Chart",
-      "https://via.placeholder.com/600x400/84cc16/ffffff?text=Location+Search"
+      "/images/bigram/bigram1.png",
+      "/images/bigram/bigram2.png",
+      "/images/bigram/bigram3.png"
     ],
     codeSnippet: `# Bigram Language Model implementation
 class BigramLanguageModel(nn.Module):
