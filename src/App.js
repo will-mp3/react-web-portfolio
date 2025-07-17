@@ -429,7 +429,7 @@ const HomePage = ({ onProjectClick }) => {
                     I graduated from the College of William & Mary with a B.S. in Computer Science in 2025 and am looking to apply my skills somewhere meaningful, where both I and the company can grow together.
                   </p>
                   <p className="text-black mb-6">
-                    I fell in love with computers in eight grade after my first pc build. 
+                    I fell in love with computers in eighth grade after my first pc build. 
                     That feeling of creation kept me hooked until I got to William & Mary where I studied Computer Science. 
                     I truly love what I do and am excited to continue to build out my skills and explore new ones!
                   </p>
