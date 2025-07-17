@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Github, Linkedin, Mail, ExternalLink, Code, Play, ArrowLeft } from 'lucide-react';
-import { Analytics } from "@vercel/analytics/react"
 
 // Sample project data - replace with your actual projects
 const projects = [
