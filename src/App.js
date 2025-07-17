@@ -177,9 +177,9 @@ print(generated_chars) `,
     technologies: ["C"],
     demoVideo: "Demo video coming soon!",
     screenshots: [
-      "https://via.placeholder.com/600x400/3b82f6/ffffff?text=Homepage",
-      "https://via.placeholder.com/600x400/10b981/ffffff?text=Product+Page",
-      "https://via.placeholder.com/600x400/f59e0b/ffffff?text=Cart"
+      "/images/fedit/fedit1.png",
+      "/images/fedit/fedit2.png",
+      "/images/fedit/fedit3.png"
     ],
     codeSnippet: `// Rotate left functionality
 char *rotate_left(char *buffer, int NROTl, int size)
