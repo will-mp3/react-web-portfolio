@@ -455,17 +455,17 @@ const HomePage = ({ onProjectClick }) => {
                   </div>
                 </div>
                 <div className="bg-black border-2 border-black w-71 h-71 flex flex-col">
-  <div className="bg-gray-200 p-2 border-b-2 border-black">
-    <span className="font-mono text-xs">PROFILE.PIC</span>
-  </div>
-  <div className="flex-1">
-    <img 
-      src="/images/me.jpg" 
-      alt="me!" 
-      className="w-full h-full object-cover" 
-    />
-  </div>
-</div>
+        <div className="bg-gray-200 p-2 border-b-2 border-black">
+            <span className="font-mono text-xs">PROFILE.PIC</span>
+        </div>
+        <div className="flex-1">
+            <img 
+            src="/images/me.jpg" 
+            alt="me!" 
+            className="w-full h-full object-cover" 
+            />
+        </div>
+        </div>
               </div>
             </div>
           </div>
