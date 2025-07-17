@@ -10,9 +10,9 @@ const projects = [
     technologies: ["Python", "PyTorch", "Tkinter", "Jupyter", "Cuda/mps"],
     demoVideo: "Demo video coming soon!",
     screenshots: [
-      "https://via.placeholder.com/600x400/8b5cf6/ffffff?text=Dashboard",
-      "https://via.placeholder.com/600x400/ef4444/ffffff?text=Task+Board",
-      "https://via.placeholder.com/600x400/06b6d4/ffffff?text=Team+View"
+      "/images/mumble/mumble1.png",
+      "/images/mumble/mumble2.png",
+      "/images/mumble/mumble3.png"
     ],
     codeSnippet: `# Multihead Attention implementation and Head class
 class Head(nn.Module):
