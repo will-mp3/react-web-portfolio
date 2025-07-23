@@ -5,7 +5,7 @@ import { Github, Linkedin, Mail, ExternalLink, Code, Play, ArrowLeft } from 'luc
 const projects = [
   {
     id: 5,
-    title: "MumbleGPT",
+    title: "Micro GPT",
     description: "Generative Pre-Trained Transformer built using a PyTorch neural network. This model is a character-level tokenizer trained on the openwebtext corpus and is capable of generating responses to user prompts. Comes paired with a UI to prompt user input.",
     technologies: ["Python", "PyTorch", "Tkinter", "Jupyter", "Cuda/mps"],
     demoVideo: "Demo video coming soon!",
