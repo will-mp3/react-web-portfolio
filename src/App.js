@@ -6,8 +6,8 @@ const projects = [
   {
     id: 6,
     title: "Tech Docs Assistant",
-    description: "An intelligent RAG-powered assistant for technical documentation, built with AWS CDK, React, and Claude Haiku. It allows users to ask questions about technical documents and receive accurate, context-aware answers. **UNDER DEVELOPMENT**",
-    technologies: ["AWS CDK", "React", "TypeScript", "Docker", "OpenSearch", "Claude Haiku"],
+    description: "An intelligent RAG-powered assistant for technical documentation, built with AWS CDK, React, and Haiku 3.5. It allows users to ask questions about technical documents and receive accurate, context-aware answers. **UNDER DEVELOPMENT**",
+    technologies: ["AWS CDK", "React", "TypeScript", "Docker", "OpenSearch", "Haiku 3.5"],
     demoVideo: "Demo video coming soon!",
     screenshots: [
       "/images/docassist/doc1.png",
@@ -82,7 +82,7 @@ const projects = [
       "Built with AWS CDK for infrastructure as code",
       "React frontend for user interaction",
       "Uses OpenSearch for document indexing and retrieval",
-      "Claude Haiku for natural language understanding",
+      "Claude's Haiku 3.5 for natural language understanding",
       "Docker for containerization",
       "Supports multiple document formats",
       "Context-aware answers based on document content"
