@@ -4,6 +4,91 @@ import { Github, Linkedin, Mail, ExternalLink, Code, Play, ArrowLeft } from 'luc
 // Sample project data - replace with your actual projects
 const projects = [
   {
+    id: 6,
+    title: "Tech Docs Assistant",
+    description: "An intelligent RAG-powered assistant for technical documentation, built with AWS CDK, React, and Claude Haiku. It allows users to ask questions about technical documents and receive accurate, context-aware answers. **UNDER DEVELOPMENT**",
+    technologies: ["AWS CDK", "React", "TypeScript", "Docker", "OpenSearch", "Claude Haiku"],
+    demoVideo: "Demo video coming soon!",
+    screenshots: [
+      "/images/docassist/doc1.png",
+      "/images/docassist/doc2.png",
+      "/images/docassist/doc3.png"
+    ],
+    codeSnippet: `
+    {/* Backend API */}
+      export interface SearchResponse {
+        query: string;
+        results: SearchResult[];
+        totalResults: number;
+      }
+
+      // Updated to match what backend actually returns
+      export interface Document {
+        id: string;
+        title: string;
+        content: string;
+        source: string;
+        technology: string;
+        timestamp: string;
+      }
+
+      export interface DocumentsResponse {
+        documents: Document[];
+        count: number;
+      }
+
+      export interface TestResponse {
+        message: string;
+        timestamp: string;
+      }
+
+      // For creating new documents
+      export interface NewDocument {
+        title: string;
+        content: string;
+        source: string;
+        technology: string;
+      }
+
+      export const apiService = {
+        // Test API connection
+        test: async (): Promise<TestResponse> => {
+          const response = await api.get<TestResponse>('/test');
+          return response.data;
+        },
+
+        // Search documents
+        search: async (query: string): Promise<SearchResponse> => {
+          const response = await api.post<SearchResponse>('/search', { query });
+          return response.data;
+        },
+
+        // Get all documents
+        getDocuments: async (): Promise<DocumentsResponse> => {
+          const response = await api.get<DocumentsResponse>('/documents');
+          return response.data;
+        },
+
+        // Add new document - NOW WITH PROPER TYPING
+        addDocument: async (document: NewDocument): Promise<{ message: string; document: Document }> => {
+          const response = await api.post<{ message: string; document: Document }>('/documents', document);
+          return response.data;
+        }
+      };
+    `,
+    githubUrl: "https://github.com/will-mp3/tech-docs-assistant",
+    features: [
+      "RAG-powered question answering",
+      "Built with AWS CDK for infrastructure as code",
+      "React frontend for user interaction",
+      "Uses OpenSearch for document indexing and retrieval",
+      "Claude Haiku for natural language understanding",
+      "Docker for containerization",
+      "Supports multiple document formats",
+      "Context-aware answers based on document content"
+    ]
+  },
+  {
     id: 5,
     title: "Micro GPT",
     description: "Generative Pre-Trained Transformer built using a PyTorch neural network. This model is a character-level tokenizer trained on the openwebtext corpus and is capable of generating responses to user prompts. Comes paired with a UI to prompt user input.",
