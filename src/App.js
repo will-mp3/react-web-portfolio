@@ -86,7 +86,7 @@ class MultiHeadAttention(nn.Module):
         # apply dropout to prevent overfitting
         out = self.dropout(self.proj(out))
         return out`,
-    githubUrl: "https://github.com/will-mp3/MumbleGPT",
+    githubUrl: "https://github.com/will-mp3/micro-gpt",
     features: [
       "Transformer block architecture",
       "Feedforward neural network with Multihead attention",
@@ -160,7 +160,7 @@ m = model.to(device)
 context = torch.zeros((1,1), dtype=torch.long, device=device)
 generated_chars = decode(m.generate(context, max_new_tokens=500)[0].tolist())
 print(generated_chars) `,
-    githubUrl: "https://github.com/will-mp3/BigramLanguageModel",
+    githubUrl: "https://github.com/will-mp3/bigram-language-model",
     features: [
       "Character-level tokenization",
       "Text prediction based on context",
@@ -333,7 +333,7 @@ void read_lines(const char *str, const char *path, int count, int linenumber, in
         </div>
     </div>
     </section>`,
-    githubUrl: "https://github.com/will-mp3/ReactWebPortfolio",
+    githubUrl: "https://github.com/will-mp3/react-web-portfolio",
     features: [
       "Classic Apple Macintosh design & color scheme",
       "Developer bio and skills showcase",
