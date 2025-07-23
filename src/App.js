@@ -464,7 +464,7 @@ const HomePage = ({ onProjectClick }) => {
               <div className="text-green-400">$ whoami</div>
               <div>Software engineer with full-stack experience building, deploying, and maintaining meaningful products</div>
               <div className="text-green-400 mt-2">$ ls skills/tools/</div>
-              <div>C, C++, Java, Python, JavaScript, TypeScript, HTML, React, React Native, Node.js, Angular, PyTorch, SQL, NoSQL, AWS, Linux, Kali, Nessus, Atlassian, Git</div>
+              <div>C, C++, Java, Python, JavaScript, TypeScript, HTML, React, React Native, Node.js, Angular, PyTorch, SQL, NoSQL, AWS, Docker, Linux, Kali, Nessus, Atlassian, Git</div>
               <div className="text-green-400 mt-2">$ ls skills/concepts/</div>
               <div>Object-Oriented Design, Data Structures, Algorithm Design, Complexity Analysis, CI/CD, System Design, Cloud Computing, DevOps, Agile</div>
               <div className="text-green-400 mt-2">$ ls certifications/</div>
