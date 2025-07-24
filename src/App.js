@@ -14,116 +14,116 @@ const projects = [
       "/images/docassist/doc2.png",
       "/images/docassist/doc3.png"
     ],
-    codeSnippet: `
-    {/* Embedding Vector */}
-      import { pipeline, env } from '@xenova/transformers';
+    codeSnippet: 
+`{/* Embedding Vector */}
+  import { pipeline, env } from '@xenova/transformers';
 
-      // Configure transformers to run in Node.js environment
-      env.allowLocalModels = false;
-      env.allowRemoteModels = true;
+  // Configure transformers to run in Node.js environment
+  env.allowLocalModels = false;
+  env.allowRemoteModels = true;
 
-      let embeddingPipeline: any = null;
-      let initializationAttempted = false;
+  let embeddingPipeline: any = null;
+  let initializationAttempted = false;
 
-      export class EmbeddingService {
-        // Initialize the embedding model (runs once on startup)
-        static async initialize(): Promise<void> {
-          if (initializationAttempted) {
-            throw new Error('Embedding service initialization already attempted');
-          }
-          
-          initializationAttempted = true;
-          console.log('Loading embedding model...');
-          
-          try {
-            // Use a lightweight, fast sentence embedding model
-            embeddingPipeline = await pipeline(
-              'feature-extraction',
-              'Xenova/all-MiniLM-L6-v2',
-              { 
-                quantized: false,
-                progress_callback: (progress: any) => {
-                  if (progress.status === 'downloading') {
-                    console.log('Downloading model: {Math.round(progress.progress || 0)}%');
-                  }
-                }
-              }
-            );
-            console.log('Embedding model loaded successfully');
-          } catch (error) {
-            console.error('Failed to load embedding model:', error);
-            embeddingPipeline = null;
-            throw new Error('Embedding model initialization failed: {(error as Error).message}');
-          }
-        }
-
-        // Check if service is ready - ADD THIS METHOD
-        static isInitialized(): boolean {
-          return embeddingPipeline !== null;
-        }
-
-        // Generate embedding vector for text
-        static async generateEmbedding(text: string): Promise<number[]> {
-          if (!embeddingPipeline) {
-            throw new Error('Embedding model not initialized. Check server startup logs.');
-          }
-
-          try {
-            // Clean and prepare text
-            const cleanText = text.trim().toLowerCase();
-            if (!cleanText) {
-              throw new Error('Empty text provided');
-            }
-
-            // Generate embedding
-            const result = await embeddingPipeline(cleanText, {
-              pooling: 'mean',
-              normalize: true
-            });
-
-            // Extract the embedding vector with proper type casting
-            const embedding = Array.from(result.data as Float32Array).map(x => Number(x));
-            console.log('Generated embedding for text: "{text.substring(0, 50)}..." ({embedding.length} dimensions)');
-            
-            return embedding;
-          } catch (error) {
-            console.error('Error generating embedding:', error);
-            throw error;
-          }
-        }
-
-        // Batch generate embeddings for multiple texts
-        static async generateBatchEmbeddings(texts: string[]): Promise<number[][]> {
-          const embeddings: number[][] = [];
-          
-          for (const text of texts) {
-            const embedding = await this.generateEmbedding(text);
-            embeddings.push(embedding);
-          }
-          
-          return embeddings;
-        }
-
-        // Calculate cosine similarity between two embeddings
-        static cosineSimilarity(embedding1: number[], embedding2: number[]): number {
-          if (embedding1.length !== embedding2.length) {
-            throw new Error('Embeddings must have the same length');
-          }
-
-          let dotProduct = 0;
-          let norm1 = 0;
-          let norm2 = 0;
-
-          for (let i = 0; i < embedding1.length; i++) {
-            dotProduct += embedding1[i] * embedding2[i];
-            norm1 += embedding1[i] * embedding1[i];
-            norm2 += embedding2[i] * embedding2[i];
-          }
-
-          return dotProduct / (Math.sqrt(norm1) * Math.sqrt(norm2));
-        }
+  export class EmbeddingService {
+    // Initialize the embedding model (runs once on startup)
+    static async initialize(): Promise<void> {
+      if (initializationAttempted) {
+        throw new Error('Embedding service initialization already attempted');
       }
-          `,
+      
+      initializationAttempted = true;
+      console.log('Loading embedding model...');
+      
+      try {
+        // Use a lightweight, fast sentence embedding model
+        embeddingPipeline = await pipeline(
+          'feature-extraction',
+          'Xenova/all-MiniLM-L6-v2',
+          { 
+            quantized: false,
+            progress_callback: (progress: any) => {
+              if (progress.status === 'downloading') {
+                console.log('Downloading model: {Math.round(progress.progress || 0)}%');
+              }
+            }
+          }
+        );
+        console.log('Embedding model loaded successfully');
+      } catch (error) {
+        console.error('Failed to load embedding model:', error);
+        embeddingPipeline = null;
+        throw new Error('Embedding model initialization failed: {(error as Error).message}');
+      }
+    }
+
+    // Check if service is ready - ADD THIS METHOD
+    static isInitialized(): boolean {
+      return embeddingPipeline !== null;
+    }
+
+    // Generate embedding vector for text
+    static async generateEmbedding(text: string): Promise<number[]> {
+      if (!embeddingPipeline) {
+        throw new Error('Embedding model not initialized. Check server startup logs.');
+      }
+
+      try {
+        // Clean and prepare text
+        const cleanText = text.trim().toLowerCase();
+        if (!cleanText) {
+          throw new Error('Empty text provided');
+        }
+
+        // Generate embedding
+        const result = await embeddingPipeline(cleanText, {
+          pooling: 'mean',
+          normalize: true
+        });
+
+        // Extract the embedding vector with proper type casting
+        const embedding = Array.from(result.data as Float32Array).map(x => Number(x));
+        console.log('Generated embedding for text: "{text.substring(0, 50)}..." ({embedding.length} dimensions)');
+        
+        return embedding;
+      } catch (error) {
+        console.error('Error generating embedding:', error);
+        throw error;
+      }
+    }
+
+    // Batch generate embeddings for multiple texts
+    static async generateBatchEmbeddings(texts: string[]): Promise<number[][]> {
+      const embeddings: number[][] = [];
+      
+      for (const text of texts) {
+        const embedding = await this.generateEmbedding(text);
+        embeddings.push(embedding);
+      }
+      
+      return embeddings;
+    }
+
+    // Calculate cosine similarity between two embeddings
+    static cosineSimilarity(embedding1: number[], embedding2: number[]): number {
+      if (embedding1.length !== embedding2.length) {
+        throw new Error('Embeddings must have the same length');
+      }
+
+      let dotProduct = 0;
+      let norm1 = 0;
+      let norm2 = 0;
+
+      for (let i = 0; i < embedding1.length; i++) {
+        dotProduct += embedding1[i] * embedding2[i];
+        norm1 += embedding1[i] * embedding1[i];
+        norm2 += embedding2[i] * embedding2[i];
+      }
+
+      return dotProduct / (Math.sqrt(norm1) * Math.sqrt(norm2));
+    }
+  }
+      `,
     githubUrl: "https://github.com/will-mp3/tech-docs-assistant",
     features: [
       "RAG-powered question answering",
@@ -147,7 +147,8 @@ const projects = [
       "/images/mumble/mumble2.png",
       "/images/mumble/mumble3.png"
     ],
-    codeSnippet: `# Multihead Attention implementation and Head class
+    codeSnippet: 
+`# Multihead Attention implementation and Head class
 class Head(nn.Module):
     # one head of self-attention
     
@@ -242,7 +243,8 @@ class MultiHeadAttention(nn.Module):
       "/images/bigram/bigram2.png",
       "/images/bigram/bigram3.png"
     ],
-    codeSnippet: `# Bigram Language Model implementation
+    codeSnippet: 
+`# Bigram Language Model implementation
 class BigramLanguageModel(nn.Module):
     def __init__(self, vocab_size):
         # calls the constructor of nn.Module
@@ -314,7 +316,8 @@ print(generated_chars) `,
       "/images/fedit/fedit2.png",
       "/images/fedit/fedit3.png"
     ],
-    codeSnippet: `// Rotate left functionality
+    codeSnippet: 
+`// Rotate left functionality
 char *rotate_left(char *buffer, int NROTl, int size)
 {
     int nrotl = NROTl;
@@ -363,7 +366,8 @@ char *rotate_left(char *buffer, int NROTl, int size)
       "/images/sgrep/sgrep2.png",
       "/images/sgrep/sgrep3.png"
     ],
-    codeSnippet: `// Read lines function with standard output
+    codeSnippet: 
+`// Read lines function with standard output
 void read_lines(const char *str, const char *path, int count, int linenumber, int quiet, int beforecontext, int context_num)
 {
     FILE *fh = fopen(path, "r");
@@ -414,58 +418,59 @@ void read_lines(const char *str, const char *path, int count, int linenumber, in
     technologies: ["React", "JavaScript", "HTML", "Tailwind CSS"],
     demoVideo: "This is the demo! Take a look around!",
     screenshots: [],
-    codeSnippet: `{/* Projects Section - Mac Folder Style */}
-    <section id="projects" className="py-20">
-    <div className="max-w-6xl mx-auto px-4">
-        <div className="bg-white border-4 border-black mb-8" style={{
-        boxShadow: '8px 8px 0px #000'
-        }}>
-        <div className="bg-gray-200 border-b-2 border-black p-2 flex items-center">
-            <div className="flex space-x-2">
-            <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-            <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-            <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-            </div>
-            <div className="flex-1 text-center">
-            <span className="font-mono text-sm font-bold">PROJECTS.FOLDER</span>
-            </div>
-            <div className="w-[64px]"></div>
-        </div>
-        <div className="p-8">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {projects.map((project, index) => {
-                const colors = ['bg-[#61bb46]', 'bg-[#fdb827]', 'bg-[#f5821f]', 'bg-[#e03a3e]', 'bg-[#963d97]', 'bg-[#009ddc]'];
-                const bgColor = colors[index % colors.length];
-                return (
-                <div key={project.id} className="bg-gray-100 border-2 border-black hover:bg-white transition cursor-pointer" style={{
-                    boxShadow: '4px 4px 0px #000'
-                }}>
-                    <div className="p-4">
-                    <h4 className="font-mono font-bold text-sm mb-2 text-black">{project.title.toUpperCase().replace(/s+/g, '.')}</h4>
-                    <p className="text-xs text-black mb-3">{project.description}</p>
-                    <div className="flex flex-wrap gap-1 mb-3">
-                        {project.technologies.map(tech => (
-                        <span key={tech} className="bg-black text-white px-2 py-1 text-xs font-mono">
-                            {tech.toUpperCase()}
-                        </span>
-                        ))}
-                    </div>
-                    <button 
-                        onClick={() => onProjectClick(project.id)}
-                        className={"font-mono text-xs text-white {bgColor} hover:opacity-80 border border-black px-2 py-1 transition"}
-                        style={{boxShadow: '2px 2px 0px #000'}}
-                    >
-                        OPEN.FILE
-                    </button>
-                    </div>
-                </div>
-                );
-            })}
-            </div>
-        </div>
-        </div>
-    </div>
-    </section>`,
+    codeSnippet: 
+  `{/* Projects Section - Mac Folder Style */}
+  <section id="projects" className="py-20">
+  <div className="max-w-6xl mx-auto px-4">
+      <div className="bg-white border-4 border-black mb-8" style={{
+      boxShadow: '8px 8px 0px #000'
+      }}>
+      <div className="bg-gray-200 border-b-2 border-black p-2 flex items-center">
+          <div className="flex space-x-2">
+          <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+          <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+          <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+          </div>
+          <div className="flex-1 text-center">
+          <span className="font-mono text-sm font-bold">PROJECTS.FOLDER</span>
+          </div>
+          <div className="w-[64px]"></div>
+      </div>
+      <div className="p-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {projects.map((project, index) => {
+              const colors = ['bg-[#61bb46]', 'bg-[#fdb827]', 'bg-[#f5821f]', 'bg-[#e03a3e]', 'bg-[#963d97]', 'bg-[#009ddc]'];
+              const bgColor = colors[index % colors.length];
+              return (
+              <div key={project.id} className="bg-gray-100 border-2 border-black hover:bg-white transition cursor-pointer" style={{
+                  boxShadow: '4px 4px 0px #000'
+              }}>
+                  <div className="p-4">
+                  <h4 className="font-mono font-bold text-sm mb-2 text-black">{project.title.toUpperCase().replace(/s+/g, '.')}</h4>
+                  <p className="text-xs text-black mb-3">{project.description}</p>
+                  <div className="flex flex-wrap gap-1 mb-3">
+                      {project.technologies.map(tech => (
+                      <span key={tech} className="bg-black text-white px-2 py-1 text-xs font-mono">
+                          {tech.toUpperCase()}
+                      </span>
+                      ))}
+                  </div>
+                  <button 
+                      onClick={() => onProjectClick(project.id)}
+                      className={"font-mono text-xs text-white {bgColor} hover:opacity-80 border border-black px-2 py-1 transition"}
+                      style={{boxShadow: '2px 2px 0px #000'}}
+                  >
+                      OPEN.FILE
+                  </button>
+                  </div>
+              </div>
+              );
+          })}
+          </div>
+      </div>
+      </div>
+  </div>
+  </section>`,
     githubUrl: "https://github.com/will-mp3/react-web-portfolio",
     features: [
       "Classic Apple Macintosh design & color scheme",
