@@ -257,7 +257,7 @@ print(generated_chars) `,
   },
   {
     id: 3,
-    title: "byte manipulation engine",
+    title: "F Edit",
     description: "File editor built in C that works by shifting and resizing certain byte portions of a given file, functionality includes file rotation, expansion, contraction, and more.",
     technologies: ["C"],
     demoVideo: "Demo video coming soon!",
@@ -292,7 +292,7 @@ char *rotate_left(char *buffer, int NROTl, int size)
 
     return buffer;
 }`,
-    githubUrl: "https://github.com/yourusername/ecommerce-platform",
+    githubUrl: "https://github.com/will-mp3/f-edit",
     liveUrl: "https://your-ecommerce-demo.com",
     features: [
       "-h -- show usage statement and exit",
@@ -306,7 +306,7 @@ char *rotate_left(char *buffer, int NROTl, int size)
   },
   {
     id: 2,
-    title: "grep recreation",
+    title: "S Grep",
     description: "Recreation of the grep command line tool built in C, allows for word/phrase searching and includes features such as line number printing, quiet mode, and context lines.",
     technologies: ["C"],
     demoVideo: "Demo video coming soon!",
@@ -350,7 +350,7 @@ void read_lines(const char *str, const char *path, int count, int linenumber, in
     fclose(fh);
     exit(0);
 }`,
-    githubUrl: "https://github.com/will-mp3/sgrep",
+    githubUrl: "https://github.com/will-mp3/s-grep",
     features: [
       "-h -- Printable usage statement",
       "-c -- Suppress normal output; instead print a count of matching lines for the input file",
