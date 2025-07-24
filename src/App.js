@@ -15,67 +15,115 @@ const projects = [
       "/images/docassist/doc3.png"
     ],
     codeSnippet: `
-    {/* Backend API */}
-      export interface SearchResponse {
-        query: string;
-        results: SearchResult[];
-        totalResults: number;
-      }
+    {/* Embedding Vector */}
+      import { pipeline, env } from '@xenova/transformers';
 
-      // Updated to match what backend actually returns
-      export interface Document {
-        id: string;
-        title: string;
-        content: string;
-        source: string;
-        technology: string;
-        timestamp: string;
-      }
+      // Configure transformers to run in Node.js environment
+      env.allowLocalModels = false;
+      env.allowRemoteModels = true;
 
-      export interface DocumentsResponse {
-        documents: Document[];
-        count: number;
-      }
+      let embeddingPipeline: any = null;
+      let initializationAttempted = false;
 
-      export interface TestResponse {
-        message: string;
-        timestamp: string;
-      }
-
-      // For creating new documents
-      export interface NewDocument {
-        title: string;
-        content: string;
-        source: string;
-        technology: string;
-      }
-
-      export const apiService = {
-        // Test API connection
-        test: async (): Promise<TestResponse> => {
-          const response = await api.get<TestResponse>('/test');
-          return response.data;
-        },
-
-        // Search documents
-        search: async (query: string): Promise<SearchResponse> => {
-          const response = await api.post<SearchResponse>('/search', { query });
-          return response.data;
-        },
-
-        // Get all documents
-        getDocuments: async (): Promise<DocumentsResponse> => {
-          const response = await api.get<DocumentsResponse>('/documents');
-          return response.data;
-        },
-
-        // Add new document - NOW WITH PROPER TYPING
-        addDocument: async (document: NewDocument): Promise<{ message: string; document: Document }> => {
-          const response = await api.post<{ message: string; document: Document }>('/documents', document);
-          return response.data;
+      export class EmbeddingService {
+        // Initialize the embedding model (runs once on startup)
+        static async initialize(): Promise<void> {
+          if (initializationAttempted) {
+            throw new Error('Embedding service initialization already attempted');
+          }
+          
+          initializationAttempted = true;
+          console.log('Loading embedding model...');
+          
+          try {
+            // Use a lightweight, fast sentence embedding model
+            embeddingPipeline = await pipeline(
+              'feature-extraction',
+              'Xenova/all-MiniLM-L6-v2',
+              { 
+                quantized: false,
+                progress_callback: (progress: any) => {
+                  if (progress.status === 'downloading') {
+                    console.log('Downloading model: {Math.round(progress.progress || 0)}%');
+                  }
+                }
+              }
+            );
+            console.log('Embedding model loaded successfully');
+          } catch (error) {
+            console.error('Failed to load embedding model:', error);
+            embeddingPipeline = null;
+            throw new Error('Embedding model initialization failed: {(error as Error).message}');
+          }
         }
-      };
-    `,
+
+        // Check if service is ready - ADD THIS METHOD
+        static isInitialized(): boolean {
+          return embeddingPipeline !== null;
+        }
+
+        // Generate embedding vector for text
+        static async generateEmbedding(text: string): Promise<number[]> {
+          if (!embeddingPipeline) {
+            throw new Error('Embedding model not initialized. Check server startup logs.');
+          }
+
+          try {
+            // Clean and prepare text
+            const cleanText = text.trim().toLowerCase();
+            if (!cleanText) {
+              throw new Error('Empty text provided');
+            }
+
+            // Generate embedding
+            const result = await embeddingPipeline(cleanText, {
+              pooling: 'mean',
+              normalize: true
+            });
+
+            // Extract the embedding vector with proper type casting
+            const embedding = Array.from(result.data as Float32Array).map(x => Number(x));
+            console.log('Generated embedding for text: "{text.substring(0, 50)}..." ({embedding.length} dimensions)');
+            
+            return embedding;
+          } catch (error) {
+            console.error('Error generating embedding:', error);
+            throw error;
+          }
+        }
+
+        // Batch generate embeddings for multiple texts
+        static async generateBatchEmbeddings(texts: string[]): Promise<number[][]> {
+          const embeddings: number[][] = [];
+          
+          for (const text of texts) {
+            const embedding = await this.generateEmbedding(text);
+            embeddings.push(embedding);
+          }
+          
+          return embeddings;
+        }
+
+        // Calculate cosine similarity between two embeddings
+        static cosineSimilarity(embedding1: number[], embedding2: number[]): number {
+          if (embedding1.length !== embedding2.length) {
+            throw new Error('Embeddings must have the same length');
+          }
+
+          let dotProduct = 0;
+          let norm1 = 0;
+          let norm2 = 0;
+
+          for (let i = 0; i < embedding1.length; i++) {
+            dotProduct += embedding1[i] * embedding2[i];
+            norm1 += embedding1[i] * embedding1[i];
+            norm2 += embedding2[i] * embedding2[i];
+          }
+
+          return dotProduct / (Math.sqrt(norm1) * Math.sqrt(norm2));
+        }
+      }
+          `,
     githubUrl: "https://github.com/will-mp3/tech-docs-assistant",
     features: [
       "RAG-powered question answering",
