@@ -5,9 +5,9 @@ import { Github, Linkedin, Mail, ExternalLink, Code, Play, ArrowLeft } from 'luc
 const projects = [
   {
     id: 6,
-    title: "Tech Docs Assistant",
-    description: "An intelligent RAG-powered assistant for technical documentation, built with AWS CDK, React, and Haiku 3.5. It allows users to ask questions about technical documents and receive accurate, context-aware answers. **UNDER DEVELOPMENT**",
-    technologies: ["AWS CDK", "React", "TypeScript", "Docker", "OpenSearch", "Haiku 3.5"],
+    title: "RAG Document Assistant",
+    description: "A full-stack RAG application built with React/TypeScript and Node.js that enables users to upload documents or scrape web content and ask AI-powered questions using OpenSearch vector embeddings and Claude AI.",
+    technologies: ["React", "TypeScript", "Node.js", "OpenSearch", "AWS CDK", "Docker"],
     demoVideo: "Demo video coming soon!",
     screenshots: [
       "/images/docassist/doc1.png",
@@ -126,14 +126,16 @@ const projects = [
       `,
     githubUrl: "https://github.com/will-mp3/tech-docs-assistant",
     features: [
-      "RAG-powered question answering",
-      "Built with AWS CDK for infrastructure as code",
-      "React frontend for user interaction",
-      "Uses OpenSearch for document indexing and retrieval",
-      "Claude's Haiku 3.5 for natural language understanding",
-      "Docker for containerization",
-      "Supports multiple document formats",
-      "Context-aware answers based on document content"
+      "File Upload Support: PDF, Word documents, text files with automatic text extraction",
+      "Web Scraping: Intelligent content extraction from documentation URLs",
+      "Smart Chunking: Optimized text segmentation for vector search",
+      "Hybrid Search: Combines semantic vector similarity with keyword matching",
+      "Relevance Scoring: Transparent percentage-based match scores",
+      "Natural Language Queries: Ask questions about uploaded documents",
+      "Contextual Responses: Claude AI generates answers from relevant document chunks",
+      "Source Citations: Every answer includes specific document references",
+      "Cost-Optimized: Uses Claude Haiku for fast, affordable responses (~$0.001 per query)",
+      "Real-time Feedback: Loading states, progress indicators, error handling"
     ]
   },
   {
