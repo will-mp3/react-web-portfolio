@@ -7,7 +7,7 @@ const projects = [
     id: 6,
     title: "RAG Document Assistant",
     description: "A full-stack RAG application built with React/TypeScript and Node.js that enables users to upload documents or scrape web content and ask AI-powered questions using OpenSearch vector embeddings and Claude AI.",
-    technologies: ["React", "TypeScript", "Node.js", "OpenSearch", "AWS CDK", "Docker"],
+    technologies: ["React", "TypeScript", "Node.js", "OpenSearch", "Docker"],
     demoVideo: "Demo video coming soon!",
     screenshots: [
       "/images/docassist/doc1.png",
