@@ -4,10 +4,157 @@ import { Github, Linkedin, Mail, ExternalLink, Code, Play, ArrowLeft } from 'luc
 // Sample project data - replace with your actual projects
 const projects = [
   {
+  id: 7,
+  title: "TLDR News Aggregator",
+  description: "An automated newsletter aggregation system that processes tech newsletters via IMAP and extracts articles using advanced HTML/text parsing with Cheerio. Generates 384-dimensional vector embeddings for semantic search and features AI-powered chat interface using Claude Haiku with custom RAG pipeline.",
+  technologies: ["TypeScript", "Node.js", "React", "PostgreSQL", "pgvector", "OpenSearch", "Docker", "Xenova Transformers", "IMAP"],
+  demoVideo: "Demo video coming soon!",
+  screenshots: [
+   
+  ],
+  codeSnippet: `{/* Embedding Functionality */}
+  async generateBatchEmbeddings(texts: string[]): Promise<EmbeddingResult[]> {
+    const results: EmbeddingResult[] = [];
+    
+    console.log('Generating embeddings for {texts.length} texts...');
+    
+    for (let i = 0; i < texts.length; i++) {
+      try {
+        const result = await this.generateEmbedding(texts[i]);
+        results.push(result);
+        
+        // Progress logging
+        if ((i + 1) % 10 === 0) {
+          console.log('Processed {i + 1}/{texts.length} embeddings');
+        }
+      } catch (error) {
+        console.error('Failed to generate embedding for text {i + 1}:', error);
+        // Push a zero vector as fallback
+        results.push({
+          embedding: new Array(384).fill(0),
+          tokens: 0,
+          processing_time: 0
+        });
+      }
+    }
+    
+    console.log('Batch embedding generation completed');
+    return results;
+  }
+
+  async generateArticleEmbeddings(article: {
+    title: string;
+    summary: string;
+    content?: string;
+  }): Promise<{
+    title_embedding: number[];
+    summary_embedding: number[];
+    content_embedding?: number[];
+  }> {
+    try {
+      const embeddings: any = {};
+      
+      // Generate title embedding
+      const titleResult = await this.generateEmbedding(article.title);
+      embeddings.title_embedding = titleResult.embedding;
+      
+      // Generate summary embedding
+      const summaryResult = await this.generateEmbedding(article.summary);
+      embeddings.summary_embedding = summaryResult.embedding;
+      
+      // Generate content embedding if available
+      if (article.content && article.content.length > 50) {
+        const contentResult = await this.generateEmbedding(article.content);
+        embeddings.content_embedding = contentResult.embedding;
+      }
+      
+      return embeddings;
+    } catch (error) {
+      console.error('Error generating article embeddings:', error);
+      throw new Error('Failed to generate article embeddings');
+    }
+  }
+
+  private preprocessText(text: string): string {
+    // Clean and normalize text
+    let cleaned = text
+      .replace(/s+/g, ' ')           // Normalize whitespace
+      .replace(/[^ws-.,!?]/g, '')  // Remove special characters
+      .trim();
+    
+    // Truncate to reasonable length (roughly 512 tokens)
+    const maxLength = 2000; // characters
+    if (cleaned.length > maxLength) {
+      cleaned = cleaned.substring(0, maxLength).trim();
+      // Try to end at a word boundary
+      const lastSpace = cleaned.lastIndexOf(' ');
+      if (lastSpace > maxLength * 0.8) {
+        cleaned = cleaned.substring(0, lastSpace);
+      }
+    }
+    
+    return cleaned;
+  }
+
+  // Compute cosine similarity between two embeddings
+  cosineSimilarity(a: number[], b: number[]): number {
+    if (a.length !== b.length) {
+      throw new Error('Embedding dimensions must match');
+    }
+    
+    let dotProduct = 0;
+    let normA = 0;
+    let normB = 0;
+    
+    for (let i = 0; i < a.length; i++) {
+      dotProduct += a[i] * b[i];
+      normA += a[i] * a[i];
+      normB += b[i] * b[i];
+    }
+    
+    normA = Math.sqrt(normA);
+    normB = Math.sqrt(normB);
+    
+    if (normA === 0 || normB === 0) {
+      return 0;
+    }
+    
+    return dotProduct / (normA * normB);
+  }
+
+  // Find most similar embeddings
+  findSimilar(queryEmbedding: number[], candidateEmbeddings: { id: string; embedding: number[] }[], topK: number = 5): { id: string; similarity: number }[] {
+    const similarities = candidateEmbeddings.map(candidate => ({
+      id: candidate.id,
+      similarity: this.cosineSimilarity(queryEmbedding, candidate.embedding)
+    }));
+    
+    return similarities
+      .sort((a, b) => b.similarity - a.similarity)
+      .slice(0, topK);
+  }`,
+  githubUrl: "https://github.com/willkatabian/tldr",
+  features: [
+    "Automated Email Processing: Daily IMAP scraping of newsletters with 24-hour window filtering",
+    "Advanced Content Extraction: Multi-strategy HTML/text parsing with Cheerio for accurate article extraction",
+    "Smart Summary Parsing: Complete sentence detection and promotional content filtering",
+    "Vector Embeddings: 384-dimensional embeddings using Xenova Transformers (all-MiniLM-L6-v2 model)",
+    "Hybrid Search: Combines pgvector semantic search with OpenSearch full-text capabilities",
+    "Duplicate Detection: Intelligent deduplication based on URL and title similarity scoring",
+    "7-Day TTL Window: Automatic cleanup with PostgreSQL expires_at timestamp management",
+    "AI Chat Interface: Claude 3 Haiku integration with retrieval-augmented generation (RAG)",
+    "Fallback Strategies: Multiple parsing methods ensure no articles are missed",
+    "Performance Optimized: Sub-500ms search responses with efficient vector operations",
+    "Error Recovery: Comprehensive error handling with graceful degradation",
+    "Scheduled Processing: Cron-based automation running daily at 10:00 AM EST",
+    "Development Environment: Docker Compose setup with PostgreSQL 16 and OpenSearch 2.11"
+  ]
+  },
+  {
     id: 6,
     title: "RAG Document Assistant",
-    description: "A full-stack RAG application built with React/TypeScript and Node.js that enables users to upload documents or scrape web content and ask AI-powered questions using OpenSearch vector embeddings and Claude AI.",
-    technologies: ["React", "TypeScript", "Node.js", "OpenSearch", "Docker"],
+    description: "A full-stack RAG application built with React/TypeScript and Node.js that enables users to upload documents or scrape web content and ask AI-powered questions on a RAG pipeline using OpenSearch, 384-dimensional vector embeddings, and Claude Haiku.",
+    technologies: ["React", "TypeScript", "Node.js", "OpenSearch", "Docker","pgvector", "Xenova Transformers"],
     demoVideo: "Demo video coming soon!",
     screenshots: [
       "/images/docassist/doc1.png",
