@@ -10,7 +10,9 @@ const projects = [
   technologies: ["TypeScript", "Node.js", "React", "PostgreSQL", "pgvector", "OpenSearch", "Docker", "Xenova Transformers", "IMAP"],
   demoVideo: "Demo video coming soon!",
   screenshots: [
-   
+    "/images/tldr/tldr1.png",
+    "/images/tldr/tldr2.png",
+    "/images/tldr/tldr3.png"
   ],
   codeSnippet: `{/* Embedding Functionality */}
   async generateBatchEmbeddings(texts: string[]): Promise<EmbeddingResult[]> {
