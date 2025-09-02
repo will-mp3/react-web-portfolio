@@ -135,7 +135,7 @@ const projects = [
       .sort((a, b) => b.similarity - a.similarity)
       .slice(0, topK);
   }`,
-  githubUrl: "https://github.com/willkatabian/tldr",
+  githubUrl: "https://github.com/will-mp3/tldr",
   features: [
     "Automated Email Processing: Daily IMAP scraping of newsletters with 24-hour window filtering",
     "Advanced Content Extraction: Multi-strategy HTML/text parsing with Cheerio for accurate article extraction",
