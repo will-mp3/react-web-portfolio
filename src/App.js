@@ -714,17 +714,13 @@ const HomePage = ({ onProjectClick }) => {
                     &gt; LOADING BACKGROUND DATA...
                   </p>
                   <p className="text-black mb-6">
-                    Hi, I'm Will Katabian, a 22 year old developer looking to make an impact in the tech world.
-                    I graduated from the College of William & Mary with a B.S. in Computer Science in 2025 and am looking to apply my skills somewhere meaningful, where both I and the company can grow together.
+                    Hi, I’m Will Katabian, a Software Engineer specializing in AI systems and development. I graduated from the College of William & Mary in 2025 with a B.S. in Computer Science, and I now work on the AI Development team at Unanet.
                   </p>
                   <p className="text-black mb-6">
-                    I fell in love with computers in eighth grade after my first pc build. 
-                    That feeling of creation kept me hooked until I got to William & Mary where I studied Computer Science. 
-                    I truly love what I do and am excited to continue to build out my skills and explore new ones!
+                    My journey with tech started in eighth grade when I built my first PC. That early spark of creation grew into a love for computer science, which I’ve been pursuing ever since. I thrive on solving problems, learning new technologies, and pushing myself to grow as a developer.
                   </p>
                   <p className="text-black mb-6">
-                    I have hands-on experience developing full-stack applications using React, JavaScript, Python, and AWS.
-                    That coupled with my strong foundation in object-oriented design, data structures, and algorithm design proves my ability to deliver secure, production-ready solutions. 
+                    I have hands-on experience developing full-stack applications with React, JavaScript, Python, and AWS, supported by a strong foundation in object-oriented design, data structures, and algorithms. I focus on delivering secure, production-ready solutions that scale.
                   </p>
                   <p className="text-black mb-6">
                     I hope this gives you an idea of who I am, but my work tells the real story. I invite you to explore my projects below to see what I really have to offer.
