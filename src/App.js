@@ -714,7 +714,7 @@ const HomePage = ({ onProjectClick }) => {
                     &gt; LOADING BACKGROUND DATA...
                   </p>
                   <p className="text-black mb-6">
-                    Hi, I’m Will Katabian, a Software Engineer specializing in AI systems and development. I graduated from the College of William & Mary in 2025 with a B.S. in Computer Science, and I now work on the AI Development team at Unanet.
+                    Hi, I’m Will Katabian, a Software Engineer specializing in AI systems and development. I graduated from the College of William & Mary in 2025 with a B.S. in Computer Science, and I now work on the AI Engineering team at Unanet.
                   </p>
                   <p className="text-black mb-6">
                     My journey with tech started in eighth grade when I built my first PC. That early spark of creation grew into a love for computer science, which I’ve been pursuing ever since. I thrive on solving problems, learning new technologies, and pushing myself to grow as a developer.
